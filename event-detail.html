@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - Against the Current</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Take Action</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <a href="events.html" class="back-link">← Back to Events</a>
+                <h1 id="eventTitle">Event Title</h1>
+                <p class="page-subtitle" id="eventSubtitle">Event details</p>
+            </div>
+        </section>
+
+        <section class="event-detail-section">
+            <div class="container">
+                <div class="event-detail-content">
+                    <div class="event-detail-image">
+                        <img id="eventImage" src="Coyfish-removebg-preview.png" alt="Event Image">
+                    </div>
+                    <div class="event-detail-info">
+                        <div class="event-detail-meta">
+                            <div class="event-meta-item">
+                                <strong>Date:</strong>
+                                <span id="eventDate"></span>
+                            </div>
+                            <div class="event-meta-item">
+                                <strong>Time:</strong>
+                                <span id="eventTime"></span>
+                            </div>
+                            <div class="event-meta-item">
+                                <strong>Location:</strong>
+                                <span id="eventLocation"></span>
+                            </div>
+                        </div>
+                        <div class="event-detail-description" id="eventDescription">
+                            <p>Loading event details...</p>
+                        </div>
+                        <div class="event-detail-actions">
+                            <a href="contact.html" class="btn btn-primary">Register for Event</a>
+                            <button class="btn btn-secondary" onclick="window.history.back()">Go Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Against the Current</h4>
+                    <p>HOSA Mental Health Promotion</p>
+                    <p>Promoting peer support and connectedness</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="stories.html">Stories</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Get Involved</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Crisis Resources</h4>
+                    <p><strong>988 Suicide & Crisis Lifeline:</strong> Call 988</p>
+                    <p><strong>Crisis Text Line:</strong> Text HOME to 741741</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <p>@AgainstTheCurrentMH</p>
+                    <p>Instagram | TikTok | Facebook</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Against the Current. HOSA Mental Health Promotion Campaign.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Event data
+        const events = {
+            'peer-support-workshop': {
+                title: 'Peer Support Workshop',
+                subtitle: 'Learn how to support your peers effectively',
+                image: 'Coyfish-removebg-preview.png',
+                date: 'March 15, 2024',
+                time: '3:00 PM - 5:00 PM',
+                location: 'High School Auditorium',
+                description: `
+                    <p>Join us for an interactive workshop focused on building peer support skills. This event is designed to help students learn effective ways to support their friends and classmates who may be struggling with mental health challenges.</p>
+                    <h4>What You'll Learn:</h4>
+                    <ul>
+                        <li>Active listening techniques</li>
+                        <li>Recognizing signs that someone may need support</li>
+                        <li>How to start difficult conversations about mental health</li>
+                        <li>Boundaries and self-care when supporting others</li>
+                        <li>Resources and when to seek professional help</li>
+                    </ul>
+                    <p>This workshop is open to all high school students. No prior experience necessary. Refreshments will be provided.</p>
+                `
+            },
+            'mental-health-awareness-day': {
+                title: 'Mental Health Awareness Day',
+                subtitle: 'A day of education, connection, and support',
+                image: 'Coyfish2-removebg-preview.png',
+                date: 'April 10, 2024',
+                time: '9:00 AM - 3:00 PM',
+                location: 'School Gymnasium',
+                description: `
+                    <p>Our annual Mental Health Awareness Day brings together students, faculty, and community members for a day dedicated to breaking down stigma and promoting mental wellness.</p>
+                    <h4>Activities Include:</h4>
+                    <ul>
+                        <li>Guest speakers sharing their mental health journeys</li>
+                        <li>Wellness activities and mindfulness workshops</li>
+                        <li>Resource fair with local mental health organizations</li>
+                        <li>Peer support activities and icebreakers</li>
+                        <li>Art therapy and creative expression stations</li>
+                    </ul>
+                    <p>This is a school-wide event. All students and staff are welcome to participate throughout the day.</p>
+                `
+            },
+            'story-sharing-circle': {
+                title: 'Story Sharing Circle',
+                subtitle: 'A safe space to share and listen',
+                image: 'lilypad-removebg-preview.png',
+                date: 'May 5, 2024',
+                time: '4:00 PM - 6:00 PM',
+                location: 'Community Center',
+                description: `
+                    <p>Our Story Sharing Circle creates a safe, confidential space for students to share their experiences with mental health, peer support, and resilience. Participation is voluntary, and sharing is always optional.</p>
+                    <h4>What to Expect:</h4>
+                    <ul>
+                        <li>Small group discussions in a supportive environment</li>
+                        <li>Opportunity to share your story (if you choose)</li>
+                        <li>Active listening and peer validation</li>
+                        <li>Confidentiality agreements and safety protocols</li>
+                        <li>Light refreshments and connection time</li>
+                    </ul>
+                    <p>This event is designed to reduce isolation and create connections. You can attend just to listen - sharing is never required.</p>
+                `
+            },
+            'wellness-fair': {
+                title: 'Wellness Fair',
+                subtitle: 'Explore resources and connect with your community',
+                image: 'lilypad2-removebg-preview.png',
+                date: 'June 12, 2024',
+                time: '11:00 AM - 2:00 PM',
+                location: 'School Courtyard',
+                description: `
+                    <p>Join us in the courtyard for our Wellness Fair featuring local organizations, wellness vendors, and interactive activities focused on mental and physical wellness.</p>
+                    <h4>Featured:</h4>
+                    <ul>
+                        <li>Local mental health organizations with resources</li>
+                        <li>Wellness vendors and products</li>
+                        <li>Stress-relief activities (meditation, yoga demonstrations)</li>
+                        <li>Free wellness screenings</li>
+                        <li>Food vendors with healthy options</li>
+                        <li>Live music and entertainment</li>
+                    </ul>
+                    <p>This is a family-friendly event. Community members of all ages are welcome!</p>
+                `
+            },
+            'peer-mentor-training': {
+                title: 'Peer Mentor Training',
+                subtitle: 'Become a certified peer mentor',
+                image: 'Coyfish-removebg-preview.png',
+                date: 'July 20, 2024',
+                time: '10:00 AM - 4:00 PM',
+                location: 'Conference Room',
+                description: `
+                    <p>Interested in becoming a peer mentor? This comprehensive training program will equip you with the skills and knowledge to effectively support your peers while maintaining healthy boundaries.</p>
+                    <h4>Training Topics:</h4>
+                    <ul>
+                        <li>Mental health basics and common challenges</li>
+                        <li>Effective communication and active listening</li>
+                        <li>Crisis intervention basics</li>
+                        <li>Ethics and boundaries in peer support</li>
+                        <li>Self-care for peer mentors</li>
+                        <li>Resource navigation and referral processes</li>
+                    </ul>
+                    <p>Upon completion, participants will receive a peer mentor certificate and can join our peer mentor program. Lunch will be provided.</p>
+                `
+            },
+            'stress-management-seminar': {
+                title: 'Stress Management Seminar',
+                subtitle: 'Learn practical tools to manage stress',
+                image: 'Coyfish2-removebg-preview.png',
+                date: 'August 8, 2024',
+                time: '2:00 PM - 4:00 PM',
+                location: 'Library Meeting Room',
+                description: `
+                    <p>This interactive seminar focuses on practical, evidence-based techniques for managing stress, especially during academic and personal challenges.</p>
+                    <h4>Topics Covered:</h4>
+                    <ul>
+                        <li>Understanding stress and its impact on mental health</li>
+                        <li>Breathing exercises and relaxation techniques</li>
+                        <li>Time management and organization strategies</li>
+                        <li>Cognitive reframing and perspective shifting</li>
+                        <li>Building resilience and coping skills</li>
+                        <li>Creating personal stress management plans</li>
+                    </ul>
+                    <p>Participants will receive a stress management toolkit with resources and exercises. All students are welcome!</p>
+                `
+            }
+        };
+
+        // Load event details based on URL parameter
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventId = urlParams.get('event');
+            
+            if (eventId && events[eventId]) {
+                const event = events[eventId];
+                document.getElementById('eventTitle').textContent = event.title;
+                document.getElementById('eventSubtitle').textContent = event.subtitle;
+                document.getElementById('eventImage').src = event.image;
+                document.getElementById('eventImage').alt = event.title;
+                document.getElementById('eventDate').textContent = event.date;
+                document.getElementById('eventTime').textContent = event.time;
+                document.getElementById('eventLocation').textContent = event.location;
+                document.getElementById('eventDescription').innerHTML = event.description;
+            } else {
+                // Default/error case
+                document.getElementById('eventTitle').textContent = 'Event Not Found';
+                document.getElementById('eventSubtitle').textContent = 'The event you\'re looking for doesn\'t exist';
+                document.getElementById('eventDescription').innerHTML = '<p>Please return to the <a href="events.html">events page</a> to browse available events.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
+

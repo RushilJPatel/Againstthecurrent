@@ -169,13 +169,13 @@ if (volunteerForm) {
             otherRole,
             message
         });
-        
-        // Show success message
+            
+            // Show success message
         volunteerForm.style.display = 'none';
         document.getElementById('volunteerSuccess').style.display = 'block';
         document.getElementById('volunteerSuccess').scrollIntoView({ behavior: 'smooth' });
-        
-        // Reset form
+            
+            // Reset form
         volunteerForm.reset();
         if (otherRoleGroup) {
             otherRoleGroup.style.display = 'none';
@@ -227,14 +227,14 @@ if (document.readyState === 'loading') {
 // Smooth Scroll for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+            e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
     });
 });
 
