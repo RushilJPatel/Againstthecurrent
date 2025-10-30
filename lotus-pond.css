@@ -1,0 +1,492 @@
+/* ==========================================
+   Lotus Flowers & Lily Pads CSS
+   Serene Pond Elements
+   ========================================== */
+
+/* Pastel Blue Color Additions */
+:root {
+    --pastel-blue: #b3d9ff;
+    --soft-blue: #99c2ff;
+    --water-blue: #d4e9ff;
+    --lily-pad-green: #7cb89d;
+    --lily-pad-dark: #5a9678;
+    --lotus-pink: #ffd4e5;
+    --lotus-white: #f8f9fa;
+}
+
+/* Lily Pad - Support for both CSS and Image versions */
+.lily-pad {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%, var(--lily-pad-green), var(--lily-pad-dark));
+    border-radius: 50%;
+    box-shadow: 
+        inset -10px -10px 20px rgba(0,0,0,0.2),
+        0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Lily Pad Images */
+.lily-pad img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+}
+
+/* Hide CSS elements when using images */
+.lily-pad:has(img) {
+    background: transparent;
+    box-shadow: none;
+}
+
+.lily-pad:has(img)::before,
+.lily-pad:has(img)::after {
+    display: none;
+}
+
+.lily-pad:has(img) .lily-pad-veins {
+    display: none;
+}
+
+/* Fallback for browsers that don't support :has() */
+.lily-pad-image {
+    background: transparent;
+    box-shadow: none;
+}
+
+.lily-pad-image::before,
+.lily-pad-image::after {
+    display: none;
+}
+
+.lily-pad-image .lily-pad-veins {
+    display: none;
+}
+
+.lily-pad-image img,
+.lily-pad img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+    /* Ensure transparent backgrounds are preserved */
+    background: transparent;
+    mix-blend-mode: normal;
+    /* Maintain transparency for PNG/transparent images */
+    image-rendering: auto;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+
+/* Lily Pad Vein Lines (for CSS-only versions) */
+.lily-pad-veins {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.lily-pad-veins::before,
+.lily-pad-veins::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 2px;
+    background: var(--lily-pad-dark);
+    opacity: 0.4;
+    top: 50%;
+    left: 50%;
+    transform-origin: left center;
+}
+
+.lily-pad-veins::before {
+    transform: translate(-50%, -50%) rotate(30deg);
+}
+
+.lily-pad-veins::after {
+    transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+/* Small Lily Pad */
+.lily-pad-small {
+    width: 60px;
+    height: 60px;
+}
+
+/* Large Lily Pad */
+.lily-pad-large {
+    width: 140px;
+    height: 140px;
+}
+
+/* Lotus Flower */
+.lotus-flower {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Lotus Petals */
+.lotus-petals {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.lotus-petal {
+    position: absolute;
+    width: 30px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--lotus-pink) 0%, #ffb8d4 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    top: 50%;
+    left: 50%;
+    transform-origin: center bottom;
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.1);
+    animation: petalFloat 4s ease-in-out infinite;
+}
+
+/* Outer Petals (8 petals) */
+.lotus-petal-1 { transform: translate(-50%, -50%) rotate(0deg) translateY(-20px); }
+.lotus-petal-2 { transform: translate(-50%, -50%) rotate(45deg) translateY(-20px); }
+.lotus-petal-3 { transform: translate(-50%, -50%) rotate(90deg) translateY(-20px); }
+.lotus-petal-4 { transform: translate(-50%, -50%) rotate(135deg) translateY(-20px); }
+.lotus-petal-5 { transform: translate(-50%, -50%) rotate(180deg) translateY(-20px); }
+.lotus-petal-6 { transform: translate(-50%, -50%) rotate(225deg) translateY(-20px); }
+.lotus-petal-7 { transform: translate(-50%, -50%) rotate(270deg) translateY(-20px); }
+.lotus-petal-8 { transform: translate(-50%, -50%) rotate(315deg) translateY(-20px); }
+
+/* Inner Petals (smaller, lighter) */
+.lotus-petal-inner {
+    width: 20px;
+    height: 30px;
+    background: linear-gradient(135deg, #fff 0%, var(--lotus-pink) 100%);
+    z-index: 2;
+}
+
+.lotus-petal-inner-1 { transform: translate(-50%, -50%) rotate(22.5deg) translateY(-12px); }
+.lotus-petal-inner-2 { transform: translate(-50%, -50%) rotate(67.5deg) translateY(-12px); }
+.lotus-petal-inner-3 { transform: translate(-50%, -50%) rotate(112.5deg) translateY(-12px); }
+.lotus-petal-inner-4 { transform: translate(-50%, -50%) rotate(157.5deg) translateY(-12px); }
+.lotus-petal-inner-5 { transform: translate(-50%, -50%) rotate(202.5deg) translateY(-12px); }
+.lotus-petal-inner-6 { transform: translate(-50%, -50%) rotate(247.5deg) translateY(-12px); }
+.lotus-petal-inner-7 { transform: translate(-50%, -50%) rotate(292.5deg) translateY(-12px); }
+.lotus-petal-inner-8 { transform: translate(-50%, -50%) rotate(337.5deg) translateY(-12px); }
+
+/* Lotus Center */
+.lotus-center {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle, #ffe066 0%, #ffb347 100%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    box-shadow: inset -2px -2px 4px rgba(0,0,0,0.2);
+}
+
+.lotus-center::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+/* Lotus Stamens */
+.lotus-stamen {
+    position: absolute;
+    width: 2px;
+    height: 8px;
+    background: #d4a574;
+    border-radius: 50% 50% 0 0;
+    top: 35%;
+    left: 50%;
+    transform-origin: bottom center;
+}
+
+.lotus-stamen-1 { transform: translate(-50%, 0) rotate(-30deg); }
+.lotus-stamen-2 { transform: translate(-50%, 0) rotate(-15deg); }
+.lotus-stamen-3 { transform: translate(-50%, 0) rotate(0deg); }
+.lotus-stamen-4 { transform: translate(-50%, 0) rotate(15deg); }
+.lotus-stamen-5 { transform: translate(-50%, 0) rotate(30deg); }
+
+/* White Lotus Variant */
+.lotus-white .lotus-petal {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+}
+
+.lotus-white .lotus-petal-inner {
+    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+}
+
+/* Blue Lotus Variant */
+.lotus-blue .lotus-petal {
+    background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--soft-blue) 100%);
+}
+
+.lotus-blue .lotus-petal-inner {
+    background: linear-gradient(135deg, #e6f2ff 0%, var(--pastel-blue) 100%);
+}
+
+/* Small Lotus */
+.lotus-small {
+    width: 50px;
+    height: 50px;
+}
+
+.lotus-small .lotus-petal {
+    width: 18px;
+    height: 28px;
+}
+
+.lotus-small .lotus-petal-inner {
+    width: 12px;
+    height: 18px;
+}
+
+.lotus-small .lotus-center {
+    width: 15px;
+    height: 15px;
+}
+
+/* Large Lotus */
+.lotus-large {
+    width: 120px;
+    height: 120px;
+}
+
+.lotus-large .lotus-petal {
+    width: 45px;
+    height: 65px;
+}
+
+.lotus-large .lotus-petal-inner {
+    width: 30px;
+    height: 45px;
+}
+
+.lotus-large .lotus-center {
+    width: 35px;
+    height: 35px;
+}
+
+/* Floating Animation */
+@keyframes petalFloat {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(var(--rotation, 0deg)) translateY(var(--distance, -20px));
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(var(--rotation, 0deg)) translateY(calc(var(--distance, -20px) - 3px));
+    }
+}
+
+@keyframes floatGently {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+.lotus-flower {
+    animation: floatGently 6s ease-in-out infinite;
+}
+
+.lily-pad {
+    animation: floatGently 5s ease-in-out infinite;
+}
+
+/* Positioned Lily Pads and Lotus for Hero Section */
+.pond-element-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.pond-element-2 {
+    top: 60%;
+    left: 8%;
+    animation-delay: 1s;
+}
+
+.pond-element-3 {
+    top: 30%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.pond-element-4 {
+    top: 75%;
+    right: 15%;
+    animation-delay: 1.5s;
+}
+
+.pond-element-5 {
+    top: 20%;
+    left: 50%;
+    animation-delay: 3s;
+}
+
+.pond-element-6 {
+    bottom: 15%;
+    left: 20%;
+    animation-delay: 2.5s;
+}
+
+.pond-element-7 {
+    top: 45%;
+    right: 5%;
+    animation-delay: 0.5s;
+}
+
+/* Water Ripple Effect */
+.water-ripple {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    animation: rippleEffect 3s ease-out infinite;
+}
+
+@keyframes rippleEffect {
+    0% {
+        width: 20px;
+        height: 20px;
+        opacity: 1;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+.ripple-1 {
+    top: 25%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.ripple-2 {
+    top: 65%;
+    right: 20%;
+    animation-delay: 1.5s;
+}
+
+.ripple-3 {
+    top: 40%;
+    left: 60%;
+    animation-delay: 3s;
+}
+
+/* Decorative Lotus for Cards */
+.card-lotus {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+/* Floating Lily Pad Trail */
+.lily-pad-trail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Blue Water Background Enhancement */
+.water-surface {
+    background: linear-gradient(
+        135deg,
+        var(--light-mint) 0%,
+        var(--water-blue) 25%,
+        var(--pastel-blue) 50%,
+        var(--light-lavender) 75%,
+        var(--soft-pink) 100%
+    );
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .lily-pad {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .lily-pad-large {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .lotus-flower {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .lotus-large {
+        width: 80px;
+        height: 80px;
+    }
+    
+    /* Hide some elements on mobile for performance */
+    .pond-element-5,
+    .pond-element-6,
+    .pond-element-7 {
+        display: none;
+    }
+}
+
+/* Subtle Parallax Effect */
+.parallax-slow {
+    animation: parallaxFloat 15s ease-in-out infinite;
+}
+
+.parallax-medium {
+    animation: parallaxFloat 10s ease-in-out infinite;
+}
+
+.parallax-fast {
+    animation: parallaxFloat 7s ease-in-out infinite;
+}
+
+@keyframes parallaxFloat {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-15px) translateX(5px);
+    }
+    50% {
+        transform: translateY(-5px) translateX(-5px);
+    }
+    75% {
+        transform: translateY(-20px) translateX(3px);
+    }
+}
+
+/* Lotus on Quiz Result */
+.result-lotus {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+}
+
+/* Page Header Lotus Decoration */
+.header-lotus {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 1rem;
+}
+

@@ -1,0 +1,423 @@
+/* ==========================================
+   Koi Fish Image Animations
+   ========================================== */
+
+/* Koi Fish Image Container */
+.koi-fish {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    object-fit: contain;
+}
+
+.koi-fish img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    /* Ensure transparent backgrounds are preserved */
+    mix-blend-mode: normal;
+    background: transparent;
+    /* Remove any default background */
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+
+.koi-fish-small {
+    width: 80px;
+    height: 40px;
+}
+
+/* For decorative koi that use image */
+.koi-fish-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Koi Fish Body - Pink/Orange Koi */
+.koi-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.koi-body::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 80%;
+    background: linear-gradient(135deg, #ff9a8b 0%, #ff6a88 50%, #ff99ac 100%);
+    border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
+    left: 15%;
+    top: 10%;
+    box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1);
+}
+
+/* Koi Fish Head */
+.koi-head {
+    position: absolute;
+    width: 35%;
+    height: 50%;
+    background: linear-gradient(135deg, #ffb8b1 0%, #ff8b88 100%);
+    border-radius: 50% 30% 30% 50% / 60% 40% 40% 60%;
+    left: 10%;
+    top: 25%;
+    z-index: 3;
+    box-shadow: inset -3px -3px 6px rgba(0,0,0,0.1);
+}
+
+/* Koi Eye */
+.koi-eye {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #2d3436;
+    border-radius: 50%;
+    left: 22%;
+    top: 35%;
+    z-index: 4;
+}
+
+.koi-eye::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+}
+
+/* Koi Tail */
+.koi-tail {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 30px;
+    border-color: transparent transparent transparent #ff6a88;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    filter: drop-shadow(2px 0 3px rgba(0,0,0,0.1));
+}
+
+.koi-tail::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 20px;
+    border-color: transparent transparent transparent #ff99ac;
+    right: 3px;
+    top: -10px;
+}
+
+/* Top Fin */
+.koi-top-fin {
+    position: absolute;
+    width: 25px;
+    height: 20px;
+    background: linear-gradient(135deg, #ff8b88 0%, #ff6a88 100%);
+    border-radius: 50% 50% 0 0;
+    left: 45%;
+    top: -5px;
+    transform: rotate(-10deg);
+    z-index: 2;
+}
+
+/* Side Fins */
+.koi-side-fin {
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    background: linear-gradient(135deg, rgba(255,139,136,0.8) 0%, rgba(255,106,136,0.8) 100%);
+    border-radius: 50%;
+    left: 35%;
+    top: 50%;
+    transform: translateY(-50%) rotate(30deg);
+    animation: finWave 2s ease-in-out infinite;
+}
+
+@keyframes finWave {
+    0%, 100% { transform: translateY(-50%) rotate(30deg); }
+    50% { transform: translateY(-50%) rotate(45deg); }
+}
+
+/* Koi Pattern Spots */
+.koi-spots {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(135deg, #ff4757 0%, #ff6348 100%);
+    border-radius: 50%;
+    left: 50%;
+    top: 40%;
+    opacity: 0.7;
+}
+
+.koi-spots::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(135deg, #ff4757 0%, #ff6348 100%);
+    border-radius: 50%;
+    left: -20px;
+    top: 5px;
+    opacity: 0.6;
+}
+
+/* Swimming Animation */
+@keyframes swimAcrossScreen {
+    0% {
+        transform: translateX(-150px) translateY(0) rotateY(0deg);
+    }
+    45% {
+        transform: translateX(calc(50vw - 60px)) translateY(-30px) rotateY(0deg);
+    }
+    55% {
+        transform: translateX(calc(50vw - 60px)) translateY(-30px) rotateY(180deg);
+    }
+    100% {
+        transform: translateX(calc(100vw + 150px)) translateY(0) rotateY(180deg);
+    }
+}
+
+@keyframes swimGently {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(30px) translateY(-15px) rotate(-5deg);
+    }
+    50% {
+        transform: translateX(60px) translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateX(30px) translateY(15px) rotate(5deg);
+    }
+}
+
+@keyframes floatUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Body Wave Animation - Applied to image */
+@keyframes bodyWave {
+    0%, 100% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(0.95);
+    }
+}
+
+.koi-body,
+.koi-fish img {
+    animation: bodyWave 3s ease-in-out infinite;
+}
+
+/* Different Koi Types */
+.koi-orange .koi-body::before {
+    background: linear-gradient(135deg, #ffb486 0%, #ff9a6c 50%, #ffb486 100%);
+}
+
+.koi-orange .koi-head {
+    background: linear-gradient(135deg, #ffd4b8 0%, #ffb486 100%);
+}
+
+.koi-orange .koi-tail {
+    border-color: transparent transparent transparent var(--soft-orange);
+}
+
+.koi-pink .koi-body::before {
+    background: linear-gradient(135deg, #fdafdf 0%, #fc9ed6 50%, #fdafdf 100%);
+}
+
+.koi-pink .koi-head {
+    background: linear-gradient(135deg, #fecfe8 0%, #fdafdf 100%);
+}
+
+.koi-pink .koi-tail {
+    border-color: transparent transparent transparent var(--soft-pink);
+}
+
+.koi-white .koi-body::before {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+}
+
+.koi-white .koi-head {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.koi-white .koi-tail {
+    border-color: transparent transparent transparent #ffffff;
+}
+
+.koi-white .koi-spots {
+    background: linear-gradient(135deg, var(--soft-pink) 0%, var(--soft-orange) 100%);
+}
+
+/* Hero Section Koi Animations */
+.hero-koi-1 {
+    top: 15%;
+    left: -150px;
+    animation: swimAcrossScreen 25s ease-in-out infinite;
+}
+
+.hero-koi-2 {
+    top: 60%;
+    left: -150px;
+    animation: swimAcrossScreen 30s ease-in-out infinite;
+    animation-delay: 5s;
+}
+
+.hero-koi-3 {
+    top: 40%;
+    left: -150px;
+    animation: swimAcrossScreen 35s ease-in-out infinite;
+    animation-delay: 10s;
+}
+
+/* Small Decorative Koi */
+.decorative-koi {
+    animation: floatUpDown 4s ease-in-out infinite;
+}
+
+/* Water Ripple Effect */
+.water-ripple {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: ripple 3s ease-out infinite;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Logo - Use actual logo image */
+.logo-koi {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.logo-koi img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: swim 3s ease-in-out infinite;
+    /* Ensure transparent background for logo */
+    background: transparent;
+    mix-blend-mode: normal;
+}
+
+/* Remove CSS-based koi body parts since we're using images */
+.logo-koi .koi-body,
+.logo-koi .koi-head,
+.logo-koi .koi-eye,
+.logo-koi .koi-tail,
+.logo-koi .koi-top-fin,
+.logo-koi .koi-side-fin,
+.logo-koi .koi-spots {
+    display: none;
+}
+
+/* Result Koi - Medium Size */
+.result-koi {
+    width: 100px;
+    height: 50px;
+    margin: 0 auto 2rem;
+    position: relative;
+    animation: swimGently 6s ease-in-out infinite;
+}
+
+.result-koi img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Hover Effect for Interactive Koi */
+.koi-fish:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.koi-fish:hover .koi-tail {
+    animation: tailFlap 0.5s ease-in-out infinite;
+}
+
+@keyframes tailFlap {
+    0%, 100% { transform: translateY(-50%) rotate(0deg); }
+    50% { transform: translateY(-50%) rotate(-10deg); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .koi-fish {
+        width: 80px;
+        height: 40px;
+    }
+    
+    .hero-koi-1,
+    .hero-koi-2,
+    .hero-koi-3 {
+        display: none;
+    }
+}
+
+/* Card Icon Koi */
+.card-koi {
+    width: 60px;
+    height: 30px;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.card-koi .koi-fish {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: floatUpDown 3s ease-in-out infinite;
+}
+
+.card-koi img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Hide CSS-based koi elements when using images */
+.koi-fish-image ~ .koi-body,
+.koi-fish-image ~ .koi-head,
+.koi-fish-image ~ .koi-eye,
+.koi-fish-image ~ .koi-tail,
+.koi-fish-image ~ .koi-top-fin,
+.koi-fish-image ~ .koi-side-fin,
+.koi-fish-image ~ .koi-spots {
+    display: none;
+}
+

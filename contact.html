@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Against the Current</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="koi-fish.css">
+    <link rel="stylesheet" href="lotus-pond.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-koi koi-fish koi-pink">
+                    <div class="koi-body">
+                        <div class="koi-head">
+                            <div class="koi-eye"></div>
+                        </div>
+                        <div class="koi-tail"></div>
+                        <div class="koi-top-fin"></div>
+                        <div class="koi-side-fin"></div>
+                        <div class="koi-spots"></div>
+                    </div>
+                </div>
+                <span class="logo-text">Against the Current</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>We're here to listen</p>
+            <div class="card-koi">
+                <div class="koi-fish koi-orange decorative-koi">
+                    <div class="koi-body">
+                        <div class="koi-head">
+                            <div class="koi-eye"></div>
+                        </div>
+                        <div class="koi-tail"></div>
+                        <div class="koi-top-fin"></div>
+                        <div class="koi-side-fin"></div>
+                        <div class="koi-spots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Notice -->
+    <section class="content-section">
+        <div class="container">
+            <div class="notice-box">
+                <h3>⚠️ Important Notice</h3>
+                <p>
+                    <strong>This contact form is NOT for crisis situations.</strong> If you're in immediate danger 
+                    or experiencing a mental health emergency, please call <strong>988</strong> (National Suicide 
+                    Prevention Lifeline) or <strong>911</strong>.
+                </p>
+                <p>
+                    For non-emergency questions, feedback, partnerships, or general inquiries, please use the form below. 
+                    We typically respond within 2-3 business days.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Connect With Us</h2>
+                    <p>
+                        Whether you have questions, suggestions, want to partner with us, or simply want to share 
+                        feedback, we'd love to hear from you.
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <span class="method-icon">📧</span>
+                            <div>
+                                <h3>Email</h3>
+                                <p>support@againstthecurrent.org</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <span class="method-icon">🌐</span>
+                            <div>
+                                <h3>Social Media</h3>
+                                <div class="social-links">
+                                    <a href="#" class="social-link">📘 Facebook</a>
+                                    <a href="#" class="social-link">🐦 Twitter</a>
+                                    <a href="#" class="social-link">📷 Instagram</a>
+                                    <a href="#" class="social-link">💼 LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <span class="method-icon">⏰</span>
+                            <div>
+                                <h3>Response Time</h3>
+                                <p>We typically respond within 2-3 business days</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="koi-decoration">🐟 🐠 🐟</div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="contactName">Name *</label>
+                            <input 
+                                type="text" 
+                                id="contactName" 
+                                name="contactName" 
+                                placeholder="Your name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">Email *</label>
+                            <input 
+                                type="email" 
+                                id="contactEmail" 
+                                name="contactEmail" 
+                                placeholder="your.email@example.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactSubject">Subject *</label>
+                            <select id="contactSubject" name="contactSubject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="resource">Resource Suggestion</option>
+                                <option value="volunteer">Volunteer Interest</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Message *</label>
+                            <textarea 
+                                id="contactMessage" 
+                                name="contactMessage" 
+                                rows="6" 
+                                placeholder="Tell us how we can help..."
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="contactConsent" name="consent" required>
+                                I understand this is not for crisis situations and I consent to being contacted via email
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+
+                <div id="contactSuccess" class="success-message" style="display: none;">
+                    <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out. We'll get back to you within 2-3 business days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="text-center">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Is this service free?</h3>
+                    <p>Yes! All resources and information on Against the Current are completely free and accessible to everyone.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you provide therapy or counseling?</h3>
+                    <p>No, we're an educational and resource platform. We connect people to professional services but don't provide direct therapy.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I volunteer or contribute?</h3>
+                    <p>We'd love to hear from you! Use the contact form above and select "Volunteer Interest" to learn about opportunities.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How can I suggest a resource?</h3>
+                    <p>Please use the contact form and select "Resource Suggestion." We review all submissions carefully.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is my information kept private?</h3>
+                    <p>Absolutely. We respect your privacy and never share your contact information with third parties.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I need immediate help?</h3>
+                    <p>Call 988 (National Suicide Prevention Lifeline) or 911 immediately. Our contact form is not monitored 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Info -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <div class="partnership-section">
+                <h2>Partnership Opportunities</h2>
+                <p class="lead">
+                    We're always looking to collaborate with mental health organizations, advocacy groups, 
+                    educational institutions, and others who share our mission.
+                </p>
+                <div class="partnership-types">
+                    <div class="partnership-card">
+                        <h3>🤝 Organizations</h3>
+                        <p>Partner with us to expand mental health resources and reach more people in need.</p>
+                    </div>
+                    <div class="partnership-card">
+                        <h3>🎓 Educational Institutions</h3>
+                        <p>Bring mental health awareness programs to your school or campus.</p>
+                    </div>
+                    <div class="partnership-card">
+                        <h3>💼 Corporate Wellness</h3>
+                        <p>Integrate mental health resources into your workplace wellness programs.</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 2rem;">
+                    Interested? Select "Partnership Opportunity" in the contact form above.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>
+                        <div class="logo-koi koi-fish koi-pink" style="display: inline-block; margin-right: 10px; vertical-align: middle;">
+                            <div class="koi-body">
+                                <div class="koi-head">
+                                    <div class="koi-eye"></div>
+                                </div>
+                                <div class="koi-tail"></div>
+                                <div class="koi-top-fin"></div>
+                                <div class="koi-side-fin"></div>
+                                <div class="koi-spots"></div>
+                            </div>
+                        </div>
+                        Against the Current
+                    </h4>
+                    <p>Swimming together towards mental wellness</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="stories.html">Stories</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Get Help Now</h4>
+                    <ul>
+                        <li>Crisis Line: 988</li>
+                        <li>Text: HOME to 741741</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Against the Current. Mental health matters.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

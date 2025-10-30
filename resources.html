@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Against the Current</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="koi-fish.css">
+    <link rel="stylesheet" href="lotus-pond.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-koi koi-fish koi-pink">
+                    <div class="koi-body">
+                        <div class="koi-head">
+                            <div class="koi-eye"></div>
+                        </div>
+                        <div class="koi-tail"></div>
+                        <div class="koi-top-fin"></div>
+                        <div class="koi-side-fin"></div>
+                        <div class="koi-spots"></div>
+                    </div>
+                </div>
+                <span class="logo-text">Against the Current</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Mental Health Resources</h1>
+            <p>Tools and support for your journey</p>
+            <div class="card-koi">
+                <div class="koi-fish koi-orange decorative-koi">
+                    <div class="koi-body">
+                        <div class="koi-head">
+                            <div class="koi-eye"></div>
+                        </div>
+                        <div class="koi-tail"></div>
+                        <div class="koi-top-fin"></div>
+                        <div class="koi-side-fin"></div>
+                        <div class="koi-spots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Resources -->
+    <section class="emergency-resources">
+        <div class="container">
+            <div class="emergency-card">
+                <h2>🆘 Crisis Resources</h2>
+                <p><strong>If you're in immediate danger, call 911</strong></p>
+                <div class="crisis-contacts">
+                    <div class="crisis-item">
+                        <h3>📞 National Suicide Prevention Lifeline</h3>
+                        <p class="hotline-number">988</p>
+                        <p>Available 24/7 in English and Spanish</p>
+                    </div>
+                    <div class="crisis-item">
+                        <h3>💬 Crisis Text Line</h3>
+                        <p class="hotline-number">Text HOME to 741741</p>
+                        <p>24/7 support via text message</p>
+                    </div>
+                    <div class="crisis-item">
+                        <h3>🌐 Online Chat</h3>
+                        <p><a href="https://988lifeline.org/chat/" target="_blank" class="resource-link">988lifeline.org/chat</a></p>
+                        <p>Chat with a counselor online</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Categories -->
+    <section class="content-section">
+        <div class="container">
+            <div class="resource-tabs">
+                <button class="tab-btn active" data-category="stress">😰 Stress</button>
+                <button class="tab-btn" data-category="anxiety">😟 Anxiety</button>
+                <button class="tab-btn" data-category="depression">😔 Depression</button>
+                <button class="tab-btn" data-category="mindfulness">🧘 Mindfulness</button>
+            </div>
+
+            <!-- Stress Resources -->
+            <div class="resource-content active" data-category="stress">
+                <h2>Managing Stress</h2>
+                <p class="category-intro">Stress is a natural response to challenges. Here are tools to help you manage it effectively.</p>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h3>🎯 Understanding Stress</h3>
+                        <p>Learn about stress triggers, symptoms, and how it affects your body and mind.</p>
+                        <a href="https://www.nimh.nih.gov/health/publications/stress" target="_blank" class="btn btn-small">Learn More</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>🏃 Physical Activity</h3>
+                        <p>Exercise is a powerful stress reliever. Even a 10-minute walk can help.</p>
+                        <ul class="resource-tips">
+                            <li>Take a short walk outdoors</li>
+                            <li>Try yoga or stretching</li>
+                            <li>Dance to your favorite music</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h3>😤 Breathing Exercises</h3>
+                        <p>Try the 4-7-8 technique: Breathe in for 4, hold for 7, exhale for 8.</p>
+                        <button class="btn btn-small" onclick="startBreathingExercise()">Start Exercise</button>
+                    </div>
+                    <div class="resource-card">
+                        <h3>📝 Journaling</h3>
+                        <p>Writing down your thoughts can help process stress and gain perspective.</p>
+                        <ul class="resource-tips">
+                            <li>Write for 5-10 minutes daily</li>
+                            <li>List three things you're grateful for</li>
+                            <li>Brain dump all your worries</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anxiety Resources -->
+            <div class="resource-content" data-category="anxiety">
+                <h2>Managing Anxiety</h2>
+                <p class="category-intro">Anxiety is more than worry—it's a real condition that affects millions. You're not alone.</p>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h3>📚 Understanding Anxiety</h3>
+                        <p>Learn about different types of anxiety disorders and their symptoms.</p>
+                        <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders" target="_blank" class="btn btn-small">Learn More</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>🌟 Grounding Techniques</h3>
+                        <p>Use the 5-4-3-2-1 method to ground yourself during anxious moments:</p>
+                        <ul class="resource-tips">
+                            <li>5 things you can see</li>
+                            <li>4 things you can touch</li>
+                            <li>3 things you can hear</li>
+                            <li>2 things you can smell</li>
+                            <li>1 thing you can taste</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h3>🎧 Apps for Anxiety</h3>
+                        <p>Helpful apps for managing anxiety:</p>
+                        <ul class="resource-tips">
+                            <li>Headspace - Meditation & sleep</li>
+                            <li>Calm - Anxiety relief</li>
+                            <li>Rootd - Panic attack support</li>
+                            <li>Sanvello - Mood tracking</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h3>💭 Cognitive Techniques</h3>
+                        <p>Challenge anxious thoughts by asking:</p>
+                        <ul class="resource-tips">
+                            <li>Is this thought realistic?</li>
+                            <li>What evidence supports it?</li>
+                            <li>What would I tell a friend?</li>
+                            <li>What's the worst that could happen?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Depression Resources -->
+            <div class="resource-content" data-category="depression">
+                <h2>Managing Depression</h2>
+                <p class="category-intro">Depression is a medical condition that affects how you feel, think, and handle daily activities.</p>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h3>💙 Understanding Depression</h3>
+                        <p>Learn about symptoms, causes, and treatment options for depression.</p>
+                        <a href="https://www.nimh.nih.gov/health/topics/depression" target="_blank" class="btn btn-small">Learn More</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>🌅 Daily Activities</h3>
+                        <p>Small steps can make a big difference:</p>
+                        <ul class="resource-tips">
+                            <li>Get sunlight for 10-15 minutes</li>
+                            <li>Maintain a regular sleep schedule</li>
+                            <li>Eat regular, balanced meals</li>
+                            <li>Connect with one person daily</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h3>🗣️ Therapy Options</h3>
+                        <p>Professional support can be life-changing:</p>
+                        <ul class="resource-tips">
+                            <li>Cognitive Behavioral Therapy (CBT)</li>
+                            <li>Interpersonal Therapy (IPT)</li>
+                            <li>Group therapy</li>
+                            <li>Online therapy platforms</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h3>👥 Support Groups</h3>
+                        <p>Connect with others who understand:</p>
+                        <a href="https://www.nami.org/Support-Education/Support-Groups" target="_blank" class="btn btn-small">Find a Group</a>
+                        <p style="margin-top: 1rem;">NAMI offers free support groups nationwide</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mindfulness Resources -->
+            <div class="resource-content" data-category="mindfulness">
+                <h2>Mindfulness & Self-Care</h2>
+                <p class="category-intro">Mindfulness helps you stay present and connected to the moment, reducing stress and improving well-being.</p>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h3>🧘 What is Mindfulness?</h3>
+                        <p>Mindfulness is the practice of being fully present and engaged in the moment without judgment.</p>
+                        <a href="https://www.mindful.org/meditation/mindfulness-getting-started/" target="_blank" class="btn btn-small">Get Started</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>🌸 Simple Practices</h3>
+                        <p>Easy ways to practice mindfulness:</p>
+                        <ul class="resource-tips">
+                            <li>5-minute morning meditation</li>
+                            <li>Mindful eating (savor each bite)</li>
+                            <li>Body scan before sleep</li>
+                            <li>Mindful walking in nature</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h3>💆 Self-Care Ideas</h3>
+                        <p>Nurture yourself with these activities:</p>
+                        <ul class="resource-tips">
+                            <li>Take a warm bath</li>
+                            <li>Read a favorite book</li>
+                            <li>Create art or music</li>
+                            <li>Spend time in nature</li>
+                            <li>Practice gratitude</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h3>📱 Guided Meditation</h3>
+                        <p>Free guided meditations available:</p>
+                        <ul class="resource-tips">
+                            <li>UCLA Mindful App (free)</li>
+                            <li>Insight Timer (free)</li>
+                            <li>YouTube guided meditations</li>
+                            <li>Smiling Mind (free)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Help -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="text-center">Finding Professional Help</h2>
+            <div class="help-options">
+                <div class="help-card">
+                    <h3>🏥 Find a Therapist</h3>
+                    <p>Psychology Today Therapist Finder</p>
+                    <a href="https://www.psychologytoday.com/us/therapists" target="_blank" class="btn btn-small">Search</a>
+                </div>
+                <div class="help-card">
+                    <h3>💻 Online Therapy</h3>
+                    <p>Accessible therapy from home</p>
+                    <ul class="resource-tips">
+                        <li>BetterHelp</li>
+                        <li>Talkspace</li>
+                        <li>7 Cups (free listeners)</li>
+                    </ul>
+                </div>
+                <div class="help-card">
+                    <h3>📞 Specialized Hotlines</h3>
+                    <ul class="resource-tips">
+                        <li>SAMHSA: 1-800-662-4357</li>
+                        <li>Veterans Crisis Line: 988 then 1</li>
+                        <li>LGBTQ+ Trevor Project: 1-866-488-7386</li>
+                        <li>Disaster Distress: 1-800-985-5990</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breathing Exercise Modal -->
+    <div id="breathingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Breathing Exercise</h2>
+            <div class="card-koi">
+                <div class="koi-fish koi-pink decorative-koi">
+                    <div class="koi-body">
+                        <div class="koi-head">
+                            <div class="koi-eye"></div>
+                        </div>
+                        <div class="koi-tail"></div>
+                        <div class="koi-top-fin"></div>
+                        <div class="koi-side-fin"></div>
+                        <div class="koi-spots"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Follow the prompts for a calming 4-7-8 breath</p>
+            <div class="breathing-circle">
+                <div id="breathingText">Click Start</div>
+            </div>
+            <button id="startBreathing" class="btn btn-primary">Start</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>
+                        <div class="logo-koi koi-fish koi-pink" style="display: inline-block; margin-right: 10px; vertical-align: middle;">
+                            <div class="koi-body">
+                                <div class="koi-head">
+                                    <div class="koi-eye"></div>
+                                </div>
+                                <div class="koi-tail"></div>
+                                <div class="koi-top-fin"></div>
+                                <div class="koi-side-fin"></div>
+                                <div class="koi-spots"></div>
+                            </div>
+                        </div>
+                        Against the Current
+                    </h4>
+                    <p>Swimming together towards mental wellness</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="stories.html">Stories</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Get Help Now</h4>
+                    <ul>
+                        <li>Crisis Line: 988</li>
+                        <li>Text: HOME to 741741</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Against the Current. Mental health matters.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
