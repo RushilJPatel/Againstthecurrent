@@ -11,18 +11,53 @@
     object-fit: contain;
 }
 
+/* Support for image-based koi fish */
 .koi-fish img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
     /* Ensure transparent backgrounds are preserved */
     mix-blend-mode: normal;
     background: transparent;
-    /* Remove any default background */
-    -webkit-background-size: contain;
-    background-size: contain;
+    display: block;
+    image-rendering: auto;
+}
+
+/* Logo koi fish styling */
+.logo-koi {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.logo-koi img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: transparent;
+    mix-blend-mode: normal;
+}
+
+/* Card koi fish styling */
+.card-koi {
+    width: 60px;
+    height: 30px;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.card-koi .koi-fish {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card-koi .koi-fish img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .koi-fish-small {
