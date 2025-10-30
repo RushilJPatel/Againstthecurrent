@@ -48,25 +48,21 @@
 
         <section class="quiz-section">
             <div class="container">
-                <h2>How Connected Do You Feel Today?</h2>
-                <p class="quiz-intro">Take a moment to check in with yourself. Remember, you're not alone.</p>
+                <h2>How Are You Feeling Today?</h2>
+                <p class="quiz-intro">Take a moment to check in with yourself. Answer a few questions to get personalized tips for a better day.</p>
                 <div class="quiz-container">
-                    <div class="quiz-question">
-                        <p>Which koi represents how you're feeling right now?</p>
-                        <div class="koi-options">
-                            <button class="koi-option" data-mood="strong">
-                                <img src="Coyfish2-removebg-preview.png" alt="Strong Koi">
-                                <span>Strong & Connected</span>
-                            </button>
-                            <button class="koi-option" data-mood="okay">
-                                <img src="Coyfish-removebg-preview.png" alt="Okay Koi">
-                                <span>Okay, But Could Use Support</span>
-                            </button>
-                            <button class="koi-option" data-mood="struggling">
-                                <img src="Coyfish2-removebg-preview.png" alt="Struggling Koi">
-                                <span>Struggling & Isolated</span>
-                            </button>
+                    <div id="quizQuestions">
+                        <!-- Questions will be dynamically inserted here -->
+                    </div>
+                    <div class="quiz-navigation">
+                        <button id="prevBtn" class="btn btn-secondary" style="display: none;">Previous</button>
+                        <button id="nextBtn" class="btn btn-primary">Next</button>
+                    </div>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
                         </div>
+                        <span id="progressText">Question 1 of 5</span>
                     </div>
                     <div class="quiz-result" id="quizResult" style="display: none;">
                         <div class="result-content"></div>
