@@ -1717,7 +1717,7 @@ footer {
         padding: var(--spacing-sm) var(--spacing-lg);
         font-size: 1.1rem;
         border-radius: 0;
-        transition: all 0.3s ease;
+    transition: all 0.3s ease;
         position: relative;
     }
 
@@ -1781,6 +1781,7 @@ footer {
         height: 220px;
         padding: 4px;
         margin: 0 auto var(--spacing-md) auto;
+        background: rgba(255, 255, 255, 0.7) !important;
     }
 
     .hero-koi {
@@ -1867,7 +1868,7 @@ footer {
     .events-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .actions-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
@@ -1906,6 +1907,7 @@ footer {
         height: 180px;
         padding: 3px;
         margin: 0 auto var(--spacing-md) auto;
+        background: rgba(255, 255, 255, 0.75) !important;
     }
 
     .hero-koi {

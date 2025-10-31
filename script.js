@@ -179,7 +179,7 @@ if (hamburger && navMenu) {
         if (currentQuestion < quizData.length - 1) {
             currentQuestion++;
             displayQuestion();
-        } else {
+    } else {
             showResults();
         }
     }
