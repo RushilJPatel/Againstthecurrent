@@ -95,25 +95,25 @@ function initQuiz() {
     showQuestion();
     updateProgress();
     
-    // Set up navigation buttons
+    // Set up navigation buttons - use event delegation to avoid listener issues
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
     
     if (nextBtn) {
-        // Remove all existing event listeners
-        nextBtn.replaceWith(nextBtn.cloneNode(true));
-        const newNextBtn = document.getElementById('nextBtn');
-        if (newNextBtn) {
-            newNextBtn.addEventListener('click', nextQuestion);
-        }
+        // Remove existing listeners and add fresh one
+        nextBtn.onclick = null;
+        nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            nextQuestion(e);
+        });
     }
     
     if (prevBtn) {
-        prevBtn.replaceWith(prevBtn.cloneNode(true));
-        const newPrevBtn = document.getElementById('prevBtn');
-        if (newPrevBtn) {
-            newPrevBtn.addEventListener('click', prevQuestion);
-        }
+        prevBtn.onclick = null;
+        prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            prevQuestion(e);
+        });
     }
 }
 
