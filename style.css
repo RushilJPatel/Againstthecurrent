@@ -1279,7 +1279,7 @@ img {
 .pledge-form {
     max-width: 700px;
     margin: 0 auto;
-    background-color: var(--color-light);
+    background-color: var(--color-green);
     padding: var(--spacing-lg);
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
