@@ -1366,7 +1366,8 @@ img {
 
 .actions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
     gap: var(--spacing-md);
 }
 
@@ -1862,6 +1863,11 @@ footer {
     
     .events-grid {
         grid-template-columns: 1fr;
+    }
+
+    .actions-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
     }
     
     .event-detail-content {
