@@ -169,6 +169,12 @@
                 document.getElementById('eventDate').textContent = event.date;
                 document.getElementById('eventTime').textContent = event.time;
                 document.getElementById('eventLocation').textContent = event.location;
+                if (event.organizer) {
+                    const organizerElement = document.getElementById('eventOrganizer');
+                    if (organizerElement) {
+                        organizerElement.textContent = event.organizer;
+                    }
+                }
                 document.getElementById('eventDescription').innerHTML = event.description;
             } else {
                 // Default/error case
