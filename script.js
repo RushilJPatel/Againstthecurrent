@@ -292,8 +292,8 @@ if (storyForm) {
 const pledgeForm = document.getElementById('pledgeForm');
 if (pledgeForm) {
     pledgeForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
+            e.preventDefault();
+            
         const formData = new FormData(pledgeForm);
         const name = formData.get('pledgeName');
         const email = formData.get('pledgeEmail');
@@ -307,13 +307,13 @@ if (pledgeForm) {
             commitments,
             message
         });
-        
-        // Show success message
+            
+            // Show success message
         pledgeForm.style.display = 'none';
         document.getElementById('pledgeSuccess').style.display = 'block';
         document.getElementById('pledgeSuccess').scrollIntoView({ behavior: 'smooth' });
-        
-        // Reset form
+            
+            // Reset form
         pledgeForm.reset();
     });
 }
@@ -335,7 +335,7 @@ if (volunteerForm) {
     }
     
     volunteerForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+            e.preventDefault();
         
         const formData = new FormData(volunteerForm);
         const name = formData.get('volunteerName');
