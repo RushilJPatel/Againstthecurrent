@@ -131,12 +131,8 @@ if (hamburger && navMenu) {
         elements.questions.innerHTML = html;
         
         // Add click handlers for options
-        elements.questions.querySelectorAll('.quiz-option-btn').forEach(btn => {
-            // Remove any existing listeners by cloning the button
-            const newBtn = btn.cloneNode(true);
-            btn.parentNode.replaceChild(newBtn, btn);
-            
-            newBtn.addEventListener('click', function(e) {
+        elements.questions.querySelectorAll('.quiz-option-btn').forEach((btn, index) => {
+            btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 
@@ -148,14 +144,16 @@ if (hamburger && navMenu) {
                 // Select clicked option
                 this.classList.add('selected');
                 
-                // Store answer immediately
-                const answerValue = parseInt(this.getAttribute('data-value'));
+                // Store answer immediately - use a number (including 0) or explicitly set
+                const answerValue = parseInt(this.getAttribute('data-value'), 10);
                 answers[currentQuestion] = answerValue;
                 
-                // Debug log (can be removed)
-                console.log('Answer stored for question', currentQuestion, ':', answerValue);
-            });
+                // Verify answer was stored
+                if (answers[currentQuestion] === answerValue) {
+                    console.log('Answer stored successfully for question', currentQuestion, ':', answerValue);
+            }
         });
+    });
         
         // Update navigation buttons
         if (elements.prevBtn) {
@@ -184,12 +182,14 @@ if (hamburger && navMenu) {
     
     // Navigate to next question
     function handleNext() {
-        // Check if answer exists (including 0, which is a valid answer)
-        if (!(currentQuestion in answers) || answers[currentQuestion] === undefined || answers[currentQuestion] === null) {
+        // Check if answer exists (0 is a valid answer, so check specifically for undefined/null)
+        const currentAnswer = answers[currentQuestion];
+        if (currentAnswer === undefined || currentAnswer === null || isNaN(currentAnswer)) {
             alert('Please select an answer before continuing.');
             return false;
         }
         
+        // Proceed to next question or show results
         if (currentQuestion < quizData.length - 1) {
             currentQuestion++;
             displayQuestion();
@@ -306,25 +306,19 @@ if (hamburger && navMenu) {
         currentQuestion = 0;
         answers = [];
         
-        // Remove any existing event listeners by cloning buttons
-        const nextBtnClone = elements.nextBtn.cloneNode(true);
-        elements.nextBtn.parentNode.replaceChild(nextBtnClone, elements.nextBtn);
-        
-        if (elements.prevBtn) {
-            const prevBtnClone = elements.prevBtn.cloneNode(true);
-            elements.prevBtn.parentNode.replaceChild(prevBtnClone, elements.prevBtn);
-        }
-        
-        // Update references after cloning
-        const newNextBtn = document.getElementById('nextBtn');
-        const newPrevBtn = document.getElementById('prevBtn');
-        
         // Display first question
         displayQuestion();
         
-        // Set up button handlers with new references
+        // Set up button handlers - remove old listeners first
+        const newNextBtn = document.getElementById('nextBtn');
+        const newPrevBtn = document.getElementById('prevBtn');
+        
         if (newNextBtn) {
-            newNextBtn.addEventListener('click', function(e) {
+            // Remove old listener by replacing the button
+            const nextBtnClone = newNextBtn.cloneNode(true);
+            newNextBtn.parentNode.replaceChild(nextBtnClone, newNextBtn);
+            
+            nextBtnClone.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 handleNext();
@@ -332,7 +326,11 @@ if (hamburger && navMenu) {
         }
         
         if (newPrevBtn) {
-            newPrevBtn.addEventListener('click', function(e) {
+            // Remove old listener by replacing the button
+            const prevBtnClone = newPrevBtn.cloneNode(true);
+            newPrevBtn.parentNode.replaceChild(prevBtnClone, newPrevBtn);
+            
+            prevBtnClone.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 handlePrevious();
