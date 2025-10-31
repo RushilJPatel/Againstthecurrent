@@ -74,9 +74,15 @@ var answers = [];
 var totalScore = 0;
 
 function initQuiz() {
+    console.log('Initializing quiz...');
     const quizQuestions = document.getElementById('quizQuestions');
     if (!quizQuestions) {
-        console.log('Quiz questions container not found');
+        console.error('Quiz questions container not found');
+        return;
+    }
+    
+    if (!quizData || quizData.length === 0) {
+        console.error('Quiz data not available');
         return;
     }
     
@@ -85,6 +91,7 @@ function initQuiz() {
     answers = [];
     totalScore = 0;
     
+    console.log('Showing first question...');
     showQuestion();
     updateProgress();
     
@@ -112,7 +119,22 @@ function initQuiz() {
 
 function showQuestion() {
     const quizQuestions = document.getElementById('quizQuestions');
+    if (!quizQuestions) {
+        console.error('Quiz questions container not found in showQuestion');
+        return;
+    }
+    
+    if (!quizData || !quizData[currentQuestion]) {
+        console.error('Quiz data not available or invalid question index');
+        return;
+    }
+    
     const question = quizData[currentQuestion];
+    
+    if (!question || !question.options) {
+        console.error('Invalid question data');
+        return;
+    }
     
     quizQuestions.innerHTML = `
         <div class="quiz-question-active">
