@@ -131,8 +131,8 @@ img {
 }
 
 .hero-logo {
-    width: 450px;
-    height: 450px;
+    width: 300px;
+    height: 300px;
     object-fit: contain;
     border-radius: 50%;
     margin: 0 auto var(--spacing-md) auto;
@@ -1605,8 +1605,8 @@ footer {
     }
 
     .hero-logo {
-        width: 300px;
-        height: 300px;
+        width: 220px;
+        height: 220px;
         padding: 4px;
         margin: 0 auto var(--spacing-md) auto;
     }
@@ -1702,8 +1702,8 @@ footer {
 
 @media (max-width: 480px) {
     .hero-logo {
-        width: 250px;
-        height: 250px;
+        width: 180px;
+        height: 180px;
         padding: 3px;
         margin: 0 auto var(--spacing-md) auto;
     }
