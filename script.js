@@ -75,13 +75,35 @@ let totalScore = 0;
 
 function initQuiz() {
     const quizQuestions = document.getElementById('quizQuestions');
-    if (!quizQuestions) return;
+    if (!quizQuestions) {
+        console.log('Quiz questions container not found');
+        return;
+    }
+    
+    // Reset quiz state
+    currentQuestion = 0;
+    answers = [];
+    totalScore = 0;
     
     showQuestion();
     updateProgress();
     
-    document.getElementById('nextBtn').addEventListener('click', nextQuestion);
-    document.getElementById('prevBtn').addEventListener('click', prevQuestion);
+    // Set up navigation buttons
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    
+    if (nextBtn) {
+        // Remove existing listeners by cloning
+        const newNextBtn = nextBtn.cloneNode(true);
+        nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+        newNextBtn.addEventListener('click', nextQuestion);
+    }
+    
+    if (prevBtn) {
+        const newPrevBtn = prevBtn.cloneNode(true);
+        prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+        newPrevBtn.addEventListener('click', prevQuestion);
+    }
 }
 
 function showQuestion() {
@@ -126,8 +148,16 @@ function showQuestion() {
 
 function updateProgress() {
     const progress = ((currentQuestion + 1) / quizData.length) * 100;
-    document.getElementById('progressFill').style.width = progress + '%';
-    document.getElementById('progressText').textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    
+    if (progressFill) {
+        progressFill.style.width = progress + '%';
+    }
+    
+    if (progressText) {
+        progressText.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+    }
 }
 
 function nextQuestion() {
@@ -237,10 +267,21 @@ function showResults(percentage) {
 }
 
 // Initialize quiz when page loads
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initQuiz);
-} else {
+document.addEventListener('DOMContentLoaded', function() {
     initQuiz();
+    
+    // Also try initializing after a short delay to ensure DOM is fully ready
+    setTimeout(function() {
+        const quizContainer = document.getElementById('quizQuestions');
+        if (quizContainer && !quizContainer.innerHTML.trim()) {
+            initQuiz();
+        }
+    }, 100);
+});
+
+// Fallback initialization
+if (document.readyState !== 'loading') {
+    setTimeout(initQuiz, 50);
 }
 
 // Story Form Submission
