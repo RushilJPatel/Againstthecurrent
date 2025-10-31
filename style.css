@@ -1269,14 +1269,11 @@ img {
 .pledge-section,
 .volunteer-section {
     padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--color-blue);
 }
 
 .pledge-section {
     background-color: var(--color-light);
-}
-
-.volunteer-section {
-    background-color: var(--color-blue);
 }
 
 .pledge-intro {
@@ -1321,26 +1318,37 @@ img {
     color: var(--color-dark);
 }
 
-.pledge-form,
+.volunteer-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-dark);
+}
+
+.volunteer-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-text);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-lg);
+    line-height: 1.8;
+    font-weight: 500;
+}
+
 .volunteer-form {
     max-width: 700px;
     margin: 0 auto;
-    background-color: var(--color-green);
+    background-color: var(--color-light);
     padding: var(--spacing-lg);
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-.pledge-form h3,
-.volunteer-section h2 {
+.pledge-form h3 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: var(--spacing-md);
     color: var(--color-dark);
-}
-
-.volunteer-section h2 {
-    margin-bottom: var(--spacing-lg);
 }
 
 .simple-actions {
