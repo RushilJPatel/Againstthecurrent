@@ -1040,7 +1040,7 @@ img {
 .story-form {
     max-width: 700px;
     margin: 0 auto;
-    background-color: var(--color-green);
+    background-color: var(--color-light);
     padding: var(--spacing-lg);
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -1274,6 +1274,15 @@ img {
 
 .pledge-section {
     background-color: var(--color-light);
+}
+
+.pledge-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--color-light);
+    padding: var(--spacing-lg);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .pledge-intro {
