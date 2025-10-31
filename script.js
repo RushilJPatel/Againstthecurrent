@@ -93,16 +93,20 @@ function initQuiz() {
     const prevBtn = document.getElementById('prevBtn');
     
     if (nextBtn) {
-        // Remove existing listeners by cloning
-        const newNextBtn = nextBtn.cloneNode(true);
-        nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
-        newNextBtn.addEventListener('click', nextQuestion);
+        // Remove all existing event listeners
+        nextBtn.replaceWith(nextBtn.cloneNode(true));
+        const newNextBtn = document.getElementById('nextBtn');
+        if (newNextBtn) {
+            newNextBtn.addEventListener('click', nextQuestion);
+        }
     }
     
     if (prevBtn) {
-        const newPrevBtn = prevBtn.cloneNode(true);
-        prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
-        newPrevBtn.addEventListener('click', prevQuestion);
+        prevBtn.replaceWith(prevBtn.cloneNode(true));
+        const newPrevBtn = document.getElementById('prevBtn');
+        if (newPrevBtn) {
+            newPrevBtn.addEventListener('click', prevQuestion);
+        }
     }
 }
 
@@ -160,7 +164,12 @@ function updateProgress() {
     }
 }
 
-function nextQuestion() {
+function nextQuestion(e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    
     if (answers[currentQuestion] === undefined) {
         alert('Please select an answer before continuing.');
         return;
@@ -175,7 +184,12 @@ function nextQuestion() {
     }
 }
 
-function prevQuestion() {
+function prevQuestion(e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    
     if (currentQuestion > 0) {
         currentQuestion--;
         showQuestion();
@@ -267,22 +281,28 @@ function showResults(percentage) {
 }
 
 // Initialize quiz when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    initQuiz();
-    
-    // Also try initializing after a short delay to ensure DOM is fully ready
-    setTimeout(function() {
-        const quizContainer = document.getElementById('quizQuestions');
-        if (quizContainer && !quizContainer.innerHTML.trim()) {
-            initQuiz();
-        }
-    }, 100);
-});
-
-// Fallback initialization
-if (document.readyState !== 'loading') {
-    setTimeout(initQuiz, 50);
+function initializeQuizOnLoad() {
+    // Wait for DOM to be fully ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(initQuiz, 100);
+        });
+    } else {
+        // DOM already loaded
+        setTimeout(initQuiz, 100);
+    }
 }
+
+// Call initialization
+initializeQuizOnLoad();
+
+// Also try again after page is fully loaded
+window.addEventListener('load', function() {
+    const quizContainer = document.getElementById('quizQuestions');
+    if (quizContainer && (!quizContainer.innerHTML.trim() || quizContainer.innerHTML.includes('<!--'))) {
+        initQuiz();
+    }
+});
 
 // Story Form Submission
 const storyForm = document.getElementById('storyForm');
