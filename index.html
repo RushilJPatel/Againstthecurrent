@@ -49,18 +49,18 @@
                 <h2>How Are You Feeling Today?</h2>
                 <p class="quiz-intro">Take a moment to check in with yourself. Answer a few questions to get personalized tips for a better day.</p>
                 <div class="quiz-container">
-                    <div id="quizQuestions">
-                        <!-- Questions will be dynamically inserted here -->
-                    </div>
-                    <div class="quiz-navigation">
-                        <button id="prevBtn" class="btn btn-secondary" type="button" style="display: none;">Previous</button>
-                        <button id="nextBtn" class="btn btn-primary" type="button">Next</button>
-                    </div>
-                    <div class="quiz-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progressFill"></div>
+                    <div id="quizWrapper">
+                        <div id="quizQuestions"></div>
+                        <div class="quiz-navigation">
+                            <button id="prevBtn" class="btn btn-secondary" type="button" style="display: none;">Previous</button>
+                            <button id="nextBtn" class="btn btn-primary" type="button">Next</button>
                         </div>
-                        <span id="progressText">Question 1 of 5</span>
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <span id="progressText">Question 1 of 5</span>
+                        </div>
                     </div>
                     <div class="quiz-result" id="quizResult" style="display: none;">
                         <div class="result-content"></div>
@@ -148,38 +148,6 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Immediate quiz initialization check
-        (function() {
-            function forceQuizInit() {
-                if (typeof initQuiz === 'function') {
-                    try {
-                        initQuiz();
-                        // Verify it worked
-                        setTimeout(function() {
-                            const container = document.getElementById('quizQuestions');
-                            if (container && (!container.innerHTML.trim() || container.innerHTML.includes('<!--') || !container.querySelector('.quiz-question-active'))) {
-                                console.log('Quiz not loaded, retrying...');
-                                initQuiz();
-                            }
-                        }, 500);
-                    } catch (error) {
-                        console.error('Error initializing quiz:', error);
-                    }
-                }
-            }
-            
-            // Try immediately
-            if (document.readyState === 'complete') {
-                forceQuizInit();
-            } else {
-                window.addEventListener('load', forceQuizInit);
-                document.addEventListener('DOMContentLoaded', function() {
-                    setTimeout(forceQuizInit, 100);
-                });
-            }
-        })();
-    </script>
 </body>
 </html>
 

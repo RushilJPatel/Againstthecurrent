@@ -15,325 +15,308 @@ if (hamburger && navMenu) {
     });
 }
 
-// Comprehensive Wellness Quiz
-var quizData = [
-    {
-        question: "How would you rate your overall mood today?",
-        options: [
-            { text: "Excellent - Feeling great!", value: 4 },
-            { text: "Good - Pretty good overall", value: 3 },
-            { text: "Okay - Some ups and downs", value: 2 },
-            { text: "Struggling - Having a tough time", value: 1 },
-            { text: "Really difficult - Very challenging", value: 0 }
-        ]
-    },
-    {
-        question: "How connected do you feel to friends or peers today?",
-        options: [
-            { text: "Very connected - I have strong relationships", value: 4 },
-            { text: "Somewhat connected - I have a few people I can talk to", value: 3 },
-            { text: "Neutral - I have some connections but could use more", value: 2 },
-            { text: "Somewhat isolated - I feel disconnected", value: 1 },
-            { text: "Very isolated - I feel alone", value: 0 }
-        ]
-    },
-    {
-        question: "How would you describe your energy level today?",
-        options: [
-            { text: "High energy - Ready to take on the day", value: 4 },
-            { text: "Moderate energy - Feeling steady", value: 3 },
-            { text: "Low energy - Feeling tired or drained", value: 2 },
-            { text: "Very low energy - Difficult to get going", value: 1 },
-            { text: "Exhausted - Barely functioning", value: 0 }
-        ]
-    },
-    {
-        question: "How well have you been able to manage stress recently?",
-        options: [
-            { text: "Very well - I have good coping strategies", value: 4 },
-            { text: "Pretty well - Managing most things okay", value: 3 },
-            { text: "It's a struggle - Some things are overwhelming", value: 2 },
-            { text: "Not well - Feeling overwhelmed", value: 1 },
-            { text: "Very poorly - Stress feels unmanageable", value: 0 }
-        ]
-    },
-    {
-        question: "How comfortable are you discussing your feelings or asking for help?",
-        options: [
-            { text: "Very comfortable - I can open up easily", value: 4 },
-            { text: "Somewhat comfortable - I can talk to some people", value: 3 },
-            { text: "Neutral - Sometimes it's hard, sometimes it's okay", value: 2 },
-            { text: "Uncomfortable - I find it difficult to share", value: 1 },
-            { text: "Very uncomfortable - I avoid talking about feelings", value: 0 }
-        ]
-    }
-];
-
-var currentQuestion = 0;
-var answers = [];
-var totalScore = 0;
-
-function initQuiz() {
-    console.log('Initializing quiz...');
-    const quizQuestions = document.getElementById('quizQuestions');
-    if (!quizQuestions) {
-        console.error('Quiz questions container not found');
-        return;
-    }
-    
-    if (!quizData || quizData.length === 0) {
-        console.error('Quiz data not available');
-        return;
-    }
-    
-    // Reset quiz state
-    currentQuestion = 0;
-    answers = [];
-    totalScore = 0;
-    
-    console.log('Showing first question...');
-    showQuestion();
-    updateProgress();
-    
-    // Set up navigation buttons - use event delegation to avoid listener issues
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    
-    if (nextBtn) {
-        // Remove existing listeners and add fresh one
-        nextBtn.onclick = null;
-        nextBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            nextQuestion(e);
-        });
-    }
-    
-    if (prevBtn) {
-        prevBtn.onclick = null;
-        prevBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            prevQuestion(e);
-        });
-    }
-}
-
-function showQuestion() {
-    const quizQuestions = document.getElementById('quizQuestions');
-    if (!quizQuestions) {
-        console.error('Quiz questions container not found in showQuestion');
-        return;
-    }
-    
-    if (!quizData || !quizData[currentQuestion]) {
-        console.error('Quiz data not available or invalid question index');
-        return;
-    }
-    
-    const question = quizData[currentQuestion];
-    
-    if (!question || !question.options) {
-        console.error('Invalid question data');
-        return;
-    }
-    
-    quizQuestions.innerHTML = `
-        <div class="quiz-question-active">
-            <h3>${question.question}</h3>
-            <div class="quiz-options">
-                ${question.options.map((option, index) => `
-                    <button class="quiz-option-btn" data-value="${option.value}" data-index="${index}">
-                        ${option.text}
-                    </button>
-                `).join('')}
-            </div>
-        </div>
-    `;
-    
-    // Add click handlers
-    document.querySelectorAll('.quiz-option-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove previous selection
-            document.querySelectorAll('.quiz-option-btn').forEach(b => b.classList.remove('selected'));
-            // Add selection to clicked button
-            this.classList.add('selected');
-            // Store answer
-            answers[currentQuestion] = parseInt(this.getAttribute('data-value'));
-        });
-    });
-    
-    // Restore previous answer if exists
-    if (answers[currentQuestion] !== undefined) {
-        const selectedBtn = document.querySelector(`.quiz-option-btn[data-value="${answers[currentQuestion]}"]`);
-        if (selectedBtn) selectedBtn.classList.add('selected');
-    }
-    
-    // Update buttons
-    document.getElementById('prevBtn').style.display = currentQuestion === 0 ? 'none' : 'inline-block';
-    document.getElementById('nextBtn').textContent = currentQuestion === quizData.length - 1 ? 'See Results' : 'Next';
-}
-
-function updateProgress() {
-    const progress = ((currentQuestion + 1) / quizData.length) * 100;
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.getElementById('progressText');
-    
-    if (progressFill) {
-        progressFill.style.width = progress + '%';
-    }
-    
-    if (progressText) {
-        progressText.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
-    }
-}
-
-function nextQuestion(e) {
-    if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    
-    if (answers[currentQuestion] === undefined) {
-        alert('Please select an answer before continuing.');
-        return;
-    }
-    
-    if (currentQuestion < quizData.length - 1) {
-        currentQuestion++;
-        showQuestion();
-        updateProgress();
-    } else {
-        calculateResults();
-    }
-}
-
-function prevQuestion(e) {
-    if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    
-    if (currentQuestion > 0) {
-        currentQuestion--;
-        showQuestion();
-        updateProgress();
-    }
-}
-
-function calculateResults() {
-    totalScore = answers.reduce((sum, value) => sum + value, 0);
-    const maxScore = quizData.length * 4;
-    const percentage = (totalScore / maxScore) * 100;
-    
-    // Hide quiz questions
-    document.getElementById('quizQuestions').style.display = 'none';
-    document.querySelector('.quiz-navigation').style.display = 'none';
-    document.querySelector('.quiz-progress').style.display = 'none';
-    
-    // Show results
-    showResults(percentage);
-}
-
-function showResults(percentage) {
-    const resultContent = document.querySelector('.result-content');
-    let resultTitle, resultText, tips;
-    
-    if (percentage >= 80) {
-        resultTitle = 'You're Doing Great!';
-        resultText = 'Your responses show that you\'re in a good place with your mental wellness and connections. Keep maintaining those healthy habits and supportive relationships!';
-        tips = [
-            'Continue checking in with yourself regularly',
-            'Share your positive energy by checking on friends who might need support',
-            'Maintain your self-care routines',
-            'Consider being a peer mentor or support person for others',
-            'Keep practicing the habits that help you feel this way'
-        ];
-    } else if (percentage >= 60) {
-        resultTitle = 'You\'re Doing Well';
-        resultText = 'Overall, you seem to be in a decent place, but there might be some areas where you could use a bit more support or self-care. That\'s completely normal!';
-        tips = [
-            'Try reaching out to a friend or trusted person today',
-            'Practice some self-care activities you enjoy',
-            'Get some fresh air or light exercise',
-            'Do something creative or that brings you joy',
-            'Consider exploring our <a href="resources.html">Resources page</a> for wellness tools'
-        ];
-    } else if (percentage >= 40) {
-        resultTitle = 'You Could Use Some Support';
-        resultText = 'It sounds like you\'re going through a challenging time. Remember, it\'s okay to not be okay, and reaching out for support is a sign of strength, not weakness.';
-        tips = [
-            'Reach out to a friend, family member, or trusted adult today',
-            'Try some deep breathing or mindfulness exercises (check our Resources page)',
-            'Get outside for a short walk, even just 10 minutes',
-            'Do one small thing that brings you comfort',
-            'Consider talking to a school counselor or mental health professional',
-            'Remember: You don\'t have to go through this alone'
-        ];
-    } else {
-        resultTitle = 'Please Reach Out for Support';
-        resultText = 'Your responses suggest you\'re going through a really difficult time. Please know that you\'re not alone, and there are people who want to help.';
-        tips = [
-            '<strong>988 Suicide & Crisis Lifeline:</strong> Call or text 988 (available 24/7)',
-            '<strong>Crisis Text Line:</strong> Text HOME to 741741',
-            'Talk to a school counselor, teacher, or trusted adult immediately',
-            'Reach out to a friend or family member you trust',
-            'Visit our <a href="resources.html">Resources page</a> for more support options',
-            'Remember: This feeling is temporary, and help is available'
-        ];
-    }
-    
-    const tipsHTML = tips.map(tip => `<li>${tip}</li>`).join('');
-    
-    resultContent.innerHTML = `
-        <h3 style="color: #ffb486; margin-bottom: 1rem; font-size: 2rem;">${resultTitle}</h3>
-        <p style="font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.8;">${resultText}</p>
-        <div class="result-tips">
-            <h4 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.3rem;">Tips for a Better Day:</h4>
-            <ul style="text-align: left; margin-left: 2rem; line-height: 2;">
-                ${tipsHTML}
-            </ul>
-        </div>
-        <div style="margin-top: 2rem;">
-            <button class="btn btn-primary" onclick="location.reload()">Take Quiz Again</button>
-            <a href="resources.html" class="btn btn-secondary">View Resources</a>
-        </div>
-    `;
-    
-    document.getElementById('quizResult').style.display = 'block';
-    document.getElementById('quizResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-// Initialize quiz when page loads
+// Comprehensive Wellness Quiz - Complete Rebuild
 (function() {
-    function runInit() {
-        try {
-            initQuiz();
-        } catch (error) {
-            console.error('Quiz initialization error:', error);
+    'use strict';
+    
+    // Quiz data
+    const quizData = [
+        {
+            question: "How would you rate your overall mood today?",
+            options: [
+                { text: "Excellent - Feeling great!", value: 4 },
+                { text: "Good - Pretty good overall", value: 3 },
+                { text: "Okay - Some ups and downs", value: 2 },
+                { text: "Struggling - Having a tough time", value: 1 },
+                { text: "Really difficult - Very challenging", value: 0 }
+            ]
+        },
+        {
+            question: "How connected do you feel to friends or peers today?",
+            options: [
+                { text: "Very connected - I have strong relationships", value: 4 },
+                { text: "Somewhat connected - I have a few people I can talk to", value: 3 },
+                { text: "Neutral - I have some connections but could use more", value: 2 },
+                { text: "Somewhat isolated - I feel disconnected", value: 1 },
+                { text: "Very isolated - I feel alone", value: 0 }
+            ]
+        },
+        {
+            question: "How would you describe your energy level today?",
+            options: [
+                { text: "High energy - Ready to take on the day", value: 4 },
+                { text: "Moderate energy - Feeling steady", value: 3 },
+                { text: "Low energy - Feeling tired or drained", value: 2 },
+                { text: "Very low energy - Difficult to get going", value: 1 },
+                { text: "Exhausted - Barely functioning", value: 0 }
+            ]
+        },
+        {
+            question: "How well have you been able to manage stress recently?",
+            options: [
+                { text: "Very well - I have good coping strategies", value: 4 },
+                { text: "Pretty well - Managing most things okay", value: 3 },
+                { text: "It's a struggle - Some things are overwhelming", value: 2 },
+                { text: "Not well - Feeling overwhelmed", value: 1 },
+                { text: "Very poorly - Stress feels unmanageable", value: 0 }
+            ]
+        },
+        {
+            question: "How comfortable are you discussing your feelings or asking for help?",
+            options: [
+                { text: "Very comfortable - I can open up easily", value: 4 },
+                { text: "Somewhat comfortable - I can talk to some people", value: 3 },
+                { text: "Neutral - Sometimes it's hard, sometimes it's okay", value: 2 },
+                { text: "Uncomfortable - I find it difficult to share", value: 1 },
+                { text: "Very uncomfortable - I avoid talking about feelings", value: 0 }
+            ]
+        }
+    ];
+    
+    let currentQuestion = 0;
+    let answers = [];
+    
+    // Get DOM elements
+    function getElements() {
+        return {
+            questions: document.getElementById('quizQuestions'),
+            nextBtn: document.getElementById('nextBtn'),
+            prevBtn: document.getElementById('prevBtn'),
+            progressFill: document.getElementById('progressFill'),
+            progressText: document.getElementById('progressText'),
+            quizWrapper: document.getElementById('quizWrapper'),
+            quizResult: document.getElementById('quizResult'),
+            resultContent: document.querySelector('.result-content')
+        };
+    }
+    
+    // Display current question
+    function displayQuestion() {
+        const elements = getElements();
+        if (!elements.questions) return;
+        
+        const question = quizData[currentQuestion];
+        if (!question) return;
+        
+        let html = '<div class="quiz-question-active">';
+        html += `<h3>${question.question}</h3>`;
+        html += '<div class="quiz-options">';
+        
+        question.options.forEach((option, index) => {
+            const selected = answers[currentQuestion] === option.value ? ' selected' : '';
+            html += `<button class="quiz-option-btn${selected}" data-value="${option.value}">${option.text}</button>`;
+        });
+        
+        html += '</div></div>';
+        elements.questions.innerHTML = html;
+        
+        // Add click handlers for options
+        elements.questions.querySelectorAll('.quiz-option-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove all selections
+                elements.questions.querySelectorAll('.quiz-option-btn').forEach(b => {
+                    b.classList.remove('selected');
+                });
+                // Select clicked option
+                this.classList.add('selected');
+                // Store answer
+                answers[currentQuestion] = parseInt(this.getAttribute('data-value'));
+            });
+        });
+        
+        // Update navigation buttons
+        if (elements.prevBtn) {
+            elements.prevBtn.style.display = currentQuestion === 0 ? 'none' : 'inline-block';
+        }
+        if (elements.nextBtn) {
+            elements.nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'See Results' : 'Next';
+        }
+        
+        // Update progress
+        updateProgress();
+    }
+    
+    // Update progress bar
+    function updateProgress() {
+        const elements = getElements();
+        const progress = ((currentQuestion + 1) / quizData.length) * 100;
+        
+        if (elements.progressFill) {
+            elements.progressFill.style.width = progress + '%';
+        }
+        if (elements.progressText) {
+            elements.progressText.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
         }
     }
     
-    // Multiple initialization attempts to ensure it works
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(runInit, 50);
-            setTimeout(runInit, 200);
-        });
-    } else {
-        // DOM already loaded
-        runInit();
-        setTimeout(runInit, 100);
+    // Navigate to next question
+    function handleNext() {
+        if (answers[currentQuestion] === undefined) {
+            alert('Please select an answer before continuing.');
+            return;
+        }
+        
+        if (currentQuestion < quizData.length - 1) {
+            currentQuestion++;
+            displayQuestion();
+        } else {
+            showResults();
+        }
     }
     
-    // Fallback after window loads
-    window.addEventListener('load', function() {
-        const quizContainer = document.getElementById('quizQuestions');
-        if (quizContainer) {
-            const isEmpty = !quizContainer.innerHTML.trim() || 
-                           quizContainer.innerHTML.includes('<!--') ||
-                           !quizContainer.querySelector('.quiz-question-active');
-            if (isEmpty) {
-                runInit();
+    // Navigate to previous question
+    function handlePrevious() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            displayQuestion();
+        }
+    }
+    
+    // Calculate and show results
+    function showResults() {
+        const elements = getElements();
+        
+        // Calculate score
+        const totalScore = answers.reduce((sum, value) => sum + value, 0);
+        const maxScore = quizData.length * 4;
+        const percentage = (totalScore / maxScore) * 100;
+        
+        // Hide quiz wrapper
+        if (elements.quizWrapper) {
+            elements.quizWrapper.style.display = 'none';
+        }
+        
+        // Determine result category
+        let resultTitle, resultText, tips;
+        
+        if (percentage >= 80) {
+            resultTitle = 'You\'re Doing Great!';
+            resultText = 'Your responses show that you\'re in a good place with your mental wellness and connections. Keep maintaining those healthy habits and supportive relationships!';
+            tips = [
+                'Continue checking in with yourself regularly',
+                'Share your positive energy by checking on friends who might need support',
+                'Maintain your self-care routines',
+                'Consider being a peer mentor or support person for others',
+                'Keep practicing the habits that help you feel this way'
+            ];
+        } else if (percentage >= 60) {
+            resultTitle = 'You\'re Doing Well';
+            resultText = 'Overall, you seem to be in a decent place, but there might be some areas where you could use a bit more support or self-care. That\'s completely normal!';
+            tips = [
+                'Try reaching out to a friend or trusted person today',
+                'Practice some self-care activities you enjoy',
+                'Get some fresh air or light exercise',
+                'Do something creative or that brings you joy',
+                'Consider exploring our <a href="resources.html">Resources page</a> for wellness tools'
+            ];
+        } else if (percentage >= 40) {
+            resultTitle = 'You Could Use Some Support';
+            resultText = 'It sounds like you\'re going through a challenging time. Remember, it\'s okay to not be okay, and reaching out for support is a sign of strength, not weakness.';
+            tips = [
+                'Reach out to a friend, family member, or trusted adult today',
+                'Try some deep breathing or mindfulness exercises (check our Resources page)',
+                'Get outside for a short walk, even just 10 minutes',
+                'Do one small thing that brings you comfort',
+                'Consider talking to a school counselor or mental health professional',
+                'Remember: You don\'t have to go through this alone'
+            ];
+        } else {
+            resultTitle = 'Please Reach Out for Support';
+            resultText = 'Your responses suggest you\'re going through a really difficult time. Please know that you\'re not alone, and there are people who want to help.';
+            tips = [
+                '<strong>988 Suicide & Crisis Lifeline:</strong> Call or text 988 (available 24/7)',
+                '<strong>Crisis Text Line:</strong> Text HOME to 741741',
+                'Talk to a school counselor, teacher, or trusted adult immediately',
+                'Reach out to a friend or family member you trust',
+                'Visit our <a href="resources.html">Resources page</a> for more support options',
+                'Remember: This feeling is temporary, and help is available'
+            ];
+        }
+        
+        // Display results
+        if (elements.resultContent) {
+            const tipsHTML = tips.map(tip => `<li>${tip}</li>`).join('');
+            elements.resultContent.innerHTML = `
+                <h3 style="color: #ffb486; margin-bottom: 1rem; font-size: 2rem;">${resultTitle}</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.8;">${resultText}</p>
+                <div class="result-tips">
+                    <h4 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.3rem;">Tips for a Better Day:</h4>
+                    <ul style="text-align: left; margin-left: 2rem; line-height: 2;">
+                        ${tipsHTML}
+                    </ul>
+                </div>
+                <div style="margin-top: 2rem;">
+                    <button class="btn btn-primary" onclick="location.reload()">Take Quiz Again</button>
+                    <a href="resources.html" class="btn btn-secondary">View Resources</a>
+                </div>
+            `;
+        }
+        
+        if (elements.quizResult) {
+            elements.quizResult.style.display = 'block';
+            elements.quizResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    
+    // Initialize quiz
+    function initQuiz() {
+        const elements = getElements();
+        
+        if (!elements.questions || !elements.nextBtn) {
+            console.log('Quiz elements not found, will retry...');
+            return false;
+        }
+        
+        // Reset state
+        currentQuestion = 0;
+        answers = [];
+        
+        // Display first question
+        displayQuestion();
+        
+        // Set up button handlers
+        elements.nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            handleNext();
+        });
+        
+        if (elements.prevBtn) {
+            elements.prevBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                handlePrevious();
+            });
+        }
+        
+        return true;
+    }
+    
+    // Initialize when DOM is ready
+    function startQuiz() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(function() {
+                    if (!initQuiz()) {
+                        setTimeout(initQuiz, 200);
+                    }
+                }, 100);
+            });
+        } else {
+            if (!initQuiz()) {
+                setTimeout(function() {
+                    initQuiz();
+                }, 100);
             }
+        }
+    }
+    
+    // Start the quiz
+    startQuiz();
+    
+    // Fallback initialization
+    window.addEventListener('load', function() {
+        const elements = getElements();
+        if (elements.questions && (!elements.questions.innerHTML.trim() || elements.questions.innerHTML.includes('<!--'))) {
+            initQuiz();
         }
     });
 })();
