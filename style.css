@@ -126,19 +126,22 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .hero-logo {
-    width: 350px;
-    height: 350px;
+    width: 450px;
+    height: 450px;
     object-fit: contain;
     border-radius: 50%;
-    margin-bottom: var(--spacing-md);
+    margin: 0 auto var(--spacing-md) auto;
     background: rgba(255, 255, 255, 0.3);
-    padding: 20px;
+    padding: 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: pulse 2s ease-in-out infinite;
     z-index: 3;
+    display: block;
 }
 
 @keyframes pulse {
@@ -1602,9 +1605,10 @@ footer {
     }
 
     .hero-logo {
-        width: 250px;
-        height: 250px;
-        padding: 15px;
+        width: 300px;
+        height: 300px;
+        padding: 18px;
+        margin: 0 auto var(--spacing-md) auto;
     }
 
     .hero-koi {
@@ -1698,9 +1702,10 @@ footer {
 
 @media (max-width: 480px) {
     .hero-logo {
-        width: 200px;
-        height: 200px;
-        padding: 12px;
+        width: 250px;
+        height: 250px;
+        padding: 15px;
+        margin: 0 auto var(--spacing-md) auto;
     }
 
     .hero-koi {
