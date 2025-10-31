@@ -129,13 +129,13 @@ img {
 }
 
 .hero-logo {
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 350px;
     object-fit: contain;
     border-radius: 50%;
     margin-bottom: var(--spacing-md);
     background: rgba(255, 255, 255, 0.3);
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: pulse 2s ease-in-out infinite;
     z-index: 3;
@@ -1602,9 +1602,9 @@ footer {
     }
 
     .hero-logo {
-        width: 150px;
-        height: 150px;
-        padding: 12px;
+        width: 250px;
+        height: 250px;
+        padding: 15px;
     }
 
     .hero-koi {
@@ -1698,9 +1698,9 @@ footer {
 
 @media (max-width: 480px) {
     .hero-logo {
-        width: 120px;
-        height: 120px;
-        padding: 10px;
+        width: 200px;
+        height: 200px;
+        padding: 12px;
     }
 
     .hero-koi {
