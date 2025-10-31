@@ -601,6 +601,14 @@ img {
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
+.protective-factor {
+    background-color: rgba(189, 204, 227, 0.3);
+}
+
+.risk-factor {
+    background-color: rgba(255, 180, 134, 0.2);
+}
+
 .factor-header {
     display: flex;
     align-items: center;
@@ -640,7 +648,7 @@ img {
 }
 
 .factor-evidence {
-    background-color: var(--color-green);
+    background-color: var(--color-blue);
     padding: var(--spacing-sm);
     border-radius: 10px;
     margin-top: var(--spacing-md);
@@ -648,11 +656,19 @@ img {
 }
 
 .protective-factor {
-    border-left: 5px solid var(--color-green);
+    border-left: 5px solid var(--color-blue);
+}
+
+.protective-factor .factor-evidence {
+    background-color: var(--color-blue);
 }
 
 .risk-factor {
     border-left: 5px solid var(--color-coral);
+}
+
+.risk-factor .factor-evidence {
+    background-color: rgba(255, 180, 134, 0.4);
 }
 
 .rationale-section {
