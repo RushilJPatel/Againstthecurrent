@@ -64,7 +64,7 @@ img {
     margin: 0 auto;
     padding: 0 var(--spacing-md);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
