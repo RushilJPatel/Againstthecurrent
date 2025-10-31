@@ -734,6 +734,15 @@ img {
     color: var(--color-text-light);
 }
 
+.principles-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-dark);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
 .team-values {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
