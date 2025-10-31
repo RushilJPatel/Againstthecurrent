@@ -149,17 +149,36 @@
 
     <script src="script.js"></script>
     <script>
-        // Ensure quiz initializes
-        window.addEventListener('load', function() {
-            if (typeof initQuiz === 'function') {
-                setTimeout(function() {
-                    const container = document.getElementById('quizQuestions');
-                    if (container && (!container.innerHTML.trim() || container.innerHTML.includes('<!--'))) {
+        // Immediate quiz initialization check
+        (function() {
+            function forceQuizInit() {
+                if (typeof initQuiz === 'function') {
+                    try {
                         initQuiz();
+                        // Verify it worked
+                        setTimeout(function() {
+                            const container = document.getElementById('quizQuestions');
+                            if (container && (!container.innerHTML.trim() || container.innerHTML.includes('<!--') || !container.querySelector('.quiz-question-active'))) {
+                                console.log('Quiz not loaded, retrying...');
+                                initQuiz();
+                            }
+                        }, 500);
+                    } catch (error) {
+                        console.error('Error initializing quiz:', error);
                     }
-                }, 300);
+                }
             }
-        });
+            
+            // Try immediately
+            if (document.readyState === 'complete') {
+                forceQuizInit();
+            } else {
+                window.addEventListener('load', forceQuizInit);
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(forceQuizInit, 100);
+                });
+            }
+        })();
     </script>
 </body>
 </html>
