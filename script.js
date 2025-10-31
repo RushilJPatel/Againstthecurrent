@@ -16,7 +16,7 @@ if (hamburger && navMenu) {
 }
 
 // Comprehensive Wellness Quiz
-const quizData = [
+var quizData = [
     {
         question: "How would you rate your overall mood today?",
         options: [
@@ -69,9 +69,9 @@ const quizData = [
     }
 ];
 
-let currentQuestion = 0;
-let answers = [];
-let totalScore = 0;
+var currentQuestion = 0;
+var answers = [];
+var totalScore = 0;
 
 function initQuiz() {
     const quizQuestions = document.getElementById('quizQuestions');
@@ -281,28 +281,40 @@ function showResults(percentage) {
 }
 
 // Initialize quiz when page loads
-function initializeQuizOnLoad() {
-    // Wait for DOM to be fully ready
+(function() {
+    function runInit() {
+        try {
+            initQuiz();
+        } catch (error) {
+            console.error('Quiz initialization error:', error);
+        }
+    }
+    
+    // Multiple initialization attempts to ensure it works
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(initQuiz, 100);
+            setTimeout(runInit, 50);
+            setTimeout(runInit, 200);
         });
     } else {
         // DOM already loaded
-        setTimeout(initQuiz, 100);
+        runInit();
+        setTimeout(runInit, 100);
     }
-}
-
-// Call initialization
-initializeQuizOnLoad();
-
-// Also try again after page is fully loaded
-window.addEventListener('load', function() {
-    const quizContainer = document.getElementById('quizQuestions');
-    if (quizContainer && (!quizContainer.innerHTML.trim() || quizContainer.innerHTML.includes('<!--'))) {
-        initQuiz();
-    }
-});
+    
+    // Fallback after window loads
+    window.addEventListener('load', function() {
+        const quizContainer = document.getElementById('quizQuestions');
+        if (quizContainer) {
+            const isEmpty = !quizContainer.innerHTML.trim() || 
+                           quizContainer.innerHTML.includes('<!--') ||
+                           !quizContainer.querySelector('.quiz-question-active');
+            if (isEmpty) {
+                runInit();
+            }
+        }
+    });
+})();
 
 // Story Form Submission
 const storyForm = document.getElementById('storyForm');

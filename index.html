@@ -148,6 +148,19 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Ensure quiz initializes
+        window.addEventListener('load', function() {
+            if (typeof initQuiz === 'function') {
+                setTimeout(function() {
+                    const container = document.getElementById('quizQuestions');
+                    if (container && (!container.innerHTML.trim() || container.innerHTML.includes('<!--'))) {
+                        initQuiz();
+                    }
+                }, 300);
+            }
+        });
+    </script>
 </body>
 </html>
 
