@@ -132,15 +132,28 @@ if (hamburger && navMenu) {
         
         // Add click handlers for options
         elements.questions.querySelectorAll('.quiz-option-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
+            // Remove any existing listeners by cloning the button
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 // Remove all selections
                 elements.questions.querySelectorAll('.quiz-option-btn').forEach(b => {
                     b.classList.remove('selected');
                 });
+                
                 // Select clicked option
                 this.classList.add('selected');
-                // Store answer
-                answers[currentQuestion] = parseInt(this.getAttribute('data-value'));
+                
+                // Store answer immediately
+                const answerValue = parseInt(this.getAttribute('data-value'));
+                answers[currentQuestion] = answerValue;
+                
+                // Debug log (can be removed)
+                console.log('Answer stored for question', currentQuestion, ':', answerValue);
             });
         });
         
@@ -171,17 +184,19 @@ if (hamburger && navMenu) {
     
     // Navigate to next question
     function handleNext() {
-        if (answers[currentQuestion] === undefined) {
+        // Check if answer exists (including 0, which is a valid answer)
+        if (!(currentQuestion in answers) || answers[currentQuestion] === undefined || answers[currentQuestion] === null) {
             alert('Please select an answer before continuing.');
-            return;
+            return false;
         }
         
         if (currentQuestion < quizData.length - 1) {
             currentQuestion++;
             displayQuestion();
-    } else {
+        } else {
             showResults();
         }
+        return true;
     }
     
     // Navigate to previous question
@@ -240,7 +255,7 @@ if (hamburger && navMenu) {
                 'Consider talking to a school counselor or mental health professional',
                 'Remember: You don\'t have to go through this alone'
             ];
-        } else {
+    } else {
             resultTitle = 'Please Reach Out for Support';
             resultText = 'Your responses suggest you\'re going through a really difficult time. Please know that you\'re not alone, and there are people who want to help.';
             tips = [
@@ -263,7 +278,7 @@ if (hamburger && navMenu) {
                     <h4 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.3rem;">Tips for a Better Day:</h4>
                     <ul style="text-align: left; margin-left: 2rem; line-height: 2;">
                         ${tipsHTML}
-                    </ul>
+            </ul>
                 </div>
                 <div style="margin-top: 2rem;">
                     <button class="btn btn-primary" onclick="location.reload()">Take Quiz Again</button>
@@ -291,18 +306,35 @@ if (hamburger && navMenu) {
         currentQuestion = 0;
         answers = [];
         
+        // Remove any existing event listeners by cloning buttons
+        const nextBtnClone = elements.nextBtn.cloneNode(true);
+        elements.nextBtn.parentNode.replaceChild(nextBtnClone, elements.nextBtn);
+        
+        if (elements.prevBtn) {
+            const prevBtnClone = elements.prevBtn.cloneNode(true);
+            elements.prevBtn.parentNode.replaceChild(prevBtnClone, elements.prevBtn);
+        }
+        
+        // Update references after cloning
+        const newNextBtn = document.getElementById('nextBtn');
+        const newPrevBtn = document.getElementById('prevBtn');
+        
         // Display first question
         displayQuestion();
         
-        // Set up button handlers
-        elements.nextBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            handleNext();
-        });
-        
-        if (elements.prevBtn) {
-            elements.prevBtn.addEventListener('click', function(e) {
+        // Set up button handlers with new references
+        if (newNextBtn) {
+            newNextBtn.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation();
+                handleNext();
+            });
+        }
+        
+        if (newPrevBtn) {
+            newPrevBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 handlePrevious();
             });
         }
