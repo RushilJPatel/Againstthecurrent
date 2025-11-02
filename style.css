@@ -1516,12 +1516,14 @@ img {
     }
 
     .professional-resources,
-    .professional-section {
+    .professional-section,
+    .counselor-section {
         padding: var(--spacing-lg) var(--spacing-md);
     }
 
     .professional-resources h2,
-    .professional-section h2 {
+    .professional-section h2,
+    .counselor-section h2 {
         font-size: 2rem;
     }
 
@@ -1551,7 +1553,8 @@ img {
 
 /* Professional Resources Section */
 .professional-resources,
-.professional-section {
+.professional-section,
+.counselor-section {
     padding: var(--spacing-xl) var(--spacing-md);
     background-color: var(--color-light);
 }
