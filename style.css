@@ -1688,18 +1688,25 @@ img {
 
     .counselor-content {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
     }
 
     .counselor-card-wide {
         flex-direction: column;
         align-items: center;
         max-width: 100%;
+        padding: var(--spacing-md);
     }
 
     .counselor-card-wide .counselor-image {
-        width: 100%;
-        max-width: 300px;
+        width: 250px;
+        height: 250px;
+        max-width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .counselor-card-wide .professional-info {
+        text-align: center;
     }
 
 /* Professional Resources Section */
@@ -1713,7 +1720,7 @@ img {
 .counselor-content {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
@@ -1725,14 +1732,17 @@ img {
     align-items: flex-start;
     gap: var(--spacing-lg);
     padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--color-green) 0%, var(--color-blue) 100%);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
 }
 
 .counselor-card-wide .counselor-image {
-    width: 300px;
-    height: auto;
+    width: 280px;
+    height: 280px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     object-fit: cover;
@@ -1743,6 +1753,7 @@ img {
     flex: 1;
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 
 .counselor-card-wide .professional-bio {
@@ -1784,8 +1795,12 @@ img {
 }
 
 .counselor-content .professional-card {
+    background: none;
+    padding: 0;
+    box-shadow: none;
     max-width: none;
     margin: 0;
+    text-align: left;
 }
 
 .professional-card h3 {
