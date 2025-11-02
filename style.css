@@ -1613,6 +1613,12 @@ img {
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
+    flex: 1;
+}
+
+.counselor-content .professional-card {
+    max-width: none;
+    margin: 0;
 }
 
 .professional-card h3 {
