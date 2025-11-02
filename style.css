@@ -1734,8 +1734,7 @@ section {
 
     /* New Mobile Design for Counselor Section - Matching Team Member Style */
     .counselor-section {
-        padding: var(--spacing-lg) var(--spacing-md);
-        background-color: var(--color-light);
+        display: none;
     }
 
     .counselor-section h2 {
