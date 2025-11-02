@@ -1732,9 +1732,10 @@ section {
         font-size: 1rem;
     }
 
-    /* New Mobile Design for Counselor Section - Matching Team Member Style */
+    /* Counselor Section - Complete Redesign */
     .counselor-section {
-        display: none;
+        padding: var(--spacing-lg) var(--spacing-md);
+        background-color: var(--color-light);
     }
 
     .counselor-section h2 {
@@ -1756,10 +1757,10 @@ section {
 
     .counselor-content {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         width: 100%;
         padding: 0;
-        max-width: 400px;
+        max-width: 500px;
         margin: 0 auto;
     }
 
@@ -1773,13 +1774,14 @@ section {
         background-color: var(--color-light);
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         border-radius: 15px;
+        text-align: center;
     }
 
     .counselor-card-wide .counselor-image {
         width: 200px;
         height: 200px;
         border-radius: 50%;
-        margin: 0 auto;
+        margin: 0 auto var(--spacing-md) auto;
         display: block;
         object-fit: cover;
         border: 4px solid rgba(189, 204, 227, 0.3);
@@ -1797,7 +1799,7 @@ section {
 
     .counselor-card-wide .professional-info h3 {
         font-size: 1.8rem;
-        margin-bottom: var(--spacing-sm);
+        margin-bottom: var(--spacing-xs);
         color: var(--color-dark);
         font-weight: bold;
         text-align: center;
@@ -1805,7 +1807,7 @@ section {
 
     .counselor-card-wide .professional-title {
         font-size: 1.1rem;
-        margin-bottom: var(--spacing-sm);
+        margin-bottom: var(--spacing-xs);
         color: var(--color-text-light);
         font-weight: 500;
         text-align: center;
@@ -1825,12 +1827,12 @@ section {
         margin-bottom: var(--spacing-md);
         color: var(--color-text);
         text-align: left;
-        padding: 0 var(--spacing-sm);
+        padding: 0;
     }
 
     .counselor-card-wide .professional-contact {
         font-size: 0.95rem;
-        padding: var(--spacing-md) var(--spacing-sm);
+        padding: var(--spacing-md) 0 0 0;
         margin-top: var(--spacing-md);
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -1896,12 +1898,11 @@ section {
 
         .counselor-card-wide .professional-bio {
             font-size: 0.95rem;
-            padding: 0;
         }
 
         .counselor-card-wide .professional-contact {
             font-size: 0.9rem;
-            padding: var(--spacing-sm);
+            padding: var(--spacing-sm) 0 0 0;
         }
 
         .counselor-section .section-intro {
