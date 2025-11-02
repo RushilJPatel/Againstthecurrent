@@ -1581,6 +1581,7 @@ img {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .counselor-card-wide {
@@ -1591,6 +1592,7 @@ img {
     padding: var(--spacing-lg);
     max-width: 1000px;
     width: 100%;
+    margin: 0 auto;
 }
 
 .counselor-card-wide .counselor-image {
