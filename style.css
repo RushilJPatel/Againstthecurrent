@@ -49,12 +49,22 @@ img {
     image-rendering: crisp-edges;
     image-rendering: auto;
     -ms-interpolation-mode: bicubic;
+    max-width: 100%;
+    height: auto;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+section {
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 /* Navigation */
@@ -81,6 +91,8 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .logo-container {
@@ -230,6 +242,7 @@ img {
     left: 0;
     opacity: 0.3;
     z-index: 1;
+    overflow: hidden;
 }
 
 .lilypad {
@@ -566,9 +579,11 @@ img {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: var(--spacing-lg);
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .stat-item {
@@ -633,10 +648,12 @@ img {
 
 .key-risk-factors-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: var(--spacing-lg);
     max-width: 1100px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .key-risk-factor-card {
@@ -975,9 +992,11 @@ img {
 /* Team Members Grid */
 .team-members-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .team-member-card {
@@ -1112,8 +1131,10 @@ img {
 
 .resource-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: var(--spacing-md);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .resource-card {
@@ -1747,6 +1768,7 @@ img {
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .counselor-card-wide .counselor-image {
@@ -1969,9 +1991,11 @@ img {
 
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: var(--spacing-lg);
     margin-top: var(--spacing-lg);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .event-card {
