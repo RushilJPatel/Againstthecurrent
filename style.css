@@ -554,6 +554,107 @@ img {
     background-color: var(--color-light);
 }
 
+/* Who We Are Section */
+.who-we-are-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-blue) 100%);
+    text-align: center;
+}
+
+.who-we-are-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-dark);
+}
+
+.who-we-are-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Key Risk Factors Section */
+.key-risk-factors-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--color-light);
+}
+
+.key-risk-factors-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-dark);
+}
+
+.key-risk-factors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.key-risk-factor-card {
+    background-color: var(--color-light);
+    padding: var(--spacing-lg);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    border-top: 5px solid;
+}
+
+.risk-factor-1 {
+    border-top-color: var(--color-pink);
+}
+
+.risk-factor-2 {
+    border-top-color: var(--color-coral);
+}
+
+.risk-factor-3 {
+    border-top-color: var(--color-blue);
+}
+
+.risk-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-light);
+    margin: 0 auto var(--spacing-md);
+}
+
+.risk-factor-1 .risk-number {
+    background: linear-gradient(135deg, var(--color-pink), #fd8fc9);
+}
+
+.risk-factor-2 .risk-number {
+    background: linear-gradient(135deg, var(--color-coral), #ff9d5c);
+}
+
+.risk-factor-3 .risk-number {
+    background: linear-gradient(135deg, var(--color-blue), #8ba3d4);
+}
+
+.key-risk-factor-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-dark);
+}
+
+.key-risk-factor-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
 .mission-content {
     display: flex;
     align-items: center;
@@ -1490,7 +1591,7 @@ img {
     }
 
     .todo-section h2 {
-        font-size: 2rem;
+    font-size: 2rem;
     }
 
     .todo-list {
@@ -1507,8 +1608,8 @@ img {
     }
 
     .todo-actions {
-        display: flex;
-        justify-content: center;
+    display: flex;
+    justify-content: center;
         gap: var(--spacing-md);
         flex-wrap: wrap;
         margin-top: var(--spacing-lg);
@@ -1532,7 +1633,7 @@ img {
     }
 
     .professional-card h3 {
-        font-size: 1.5rem;
+    font-size: 1.5rem;
     }
 
     .professional-title {
@@ -2061,8 +2162,8 @@ footer {
         padding: var(--spacing-md) 0 var(--spacing-lg) 0;
         z-index: 1000;
         overflow-y: auto;
-        display: flex;
-        justify-content: center;
+    display: flex;
+    justify-content: center;
         align-items: center;
     }
 
@@ -2083,7 +2184,7 @@ footer {
         font-size: 1.1rem;
         border-radius: 0;
         transition: all 0.3s ease;
-        position: relative;
+    position: relative;
     }
 
     .nav-menu a::before {
@@ -2096,8 +2197,8 @@ footer {
         background-color: var(--color-coral);
         transform: scaleY(0);
         transition: transform 0.3s ease;
-        z-index: 1;
-    }
+    z-index: 1;
+}
 
     .nav-menu a:hover,
     .nav-menu a.active {
@@ -2220,12 +2321,38 @@ footer {
         font-size: 1rem;
     }
 
-.factors-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
+    .factors-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .who-we-are-section h2 {
+        font-size: 2rem;
+    }
+
+    .who-we-are-text {
+        font-size: 1.1rem;
+    }
+
+    .key-risk-factors-section h2 {
+        font-size: 2rem;
+    }
+
+    .key-risk-factors-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .risk-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .key-risk-factor-card h3 {
+        font-size: 1.3rem;
+    }
 
 .resource-grid {
-    grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
 }
 
     .crisis-numbers {
