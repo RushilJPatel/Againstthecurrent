@@ -1719,24 +1719,117 @@ section {
     .counselor-content {
         flex-direction: column;
         align-items: stretch;
+        width: 100%;
+        padding: 0;
     }
 
     .counselor-card-wide {
         flex-direction: column;
         align-items: center;
         max-width: 100%;
+        width: 100%;
         padding: var(--spacing-md);
+        gap: var(--spacing-md);
     }
 
     .counselor-card-wide .counselor-image {
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
         max-width: 100%;
-        margin-bottom: var(--spacing-md);
+        margin: 0 auto var(--spacing-md) auto;
+        display: block;
     }
 
     .counselor-card-wide .professional-info {
         text-align: center;
+        width: 100%;
+    }
+
+    .counselor-card-wide .professional-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .counselor-card-wide .professional-title {
+        font-size: 1.1rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .counselor-card-wide .professional-credentials {
+        font-size: 0.95rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .counselor-card-wide .professional-bio {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .counselor-card-wide .professional-contact {
+        font-size: 0.9rem;
+        padding-top: var(--spacing-sm);
+        margin-top: var(--spacing-sm);
+    }
+
+    .counselor-card-wide .professional-contact p {
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .counselor-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.3;
+    }
+
+    .counselor-section .section-intro {
+        font-size: 1rem;
+        padding: 0 var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
+        line-height: 1.6;
+    }
+
+    @media (max-width: 480px) {
+        .counselor-section {
+            padding: var(--spacing-md) var(--spacing-sm);
+        }
+
+        .counselor-section h2 {
+            font-size: 1.5rem;
+        }
+
+        .counselor-card-wide {
+            padding: var(--spacing-sm);
+        }
+
+        .counselor-card-wide .counselor-image {
+            width: 180px;
+            height: 180px;
+        }
+
+        .counselor-card-wide .professional-info h3 {
+            font-size: 1.3rem;
+        }
+
+        .counselor-card-wide .professional-title {
+            font-size: 1rem;
+        }
+
+        .counselor-card-wide .professional-credentials {
+            font-size: 0.9rem;
+        }
+
+        .counselor-card-wide .professional-bio {
+            font-size: 0.9rem;
+        }
+
+        .counselor-card-wide .professional-contact {
+            font-size: 0.85rem;
+        }
+
+        .counselor-section .section-intro {
+            font-size: 0.95rem;
+        }
     }
 
 /* Professional Resources Section */
