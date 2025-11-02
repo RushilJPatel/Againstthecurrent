@@ -519,11 +519,12 @@ img {
 
 .campaign-quote {
     text-align: center;
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
     margin: var(--spacing-xl) 0;
-    border: 2px solid rgba(0, 0, 0, 0.15);
+    border: none;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(45, 45, 45, 0.85);
+    backdrop-filter: blur(10px);
 }
 
 .mental-health-quote-minimal {
@@ -531,10 +532,10 @@ img {
     font-size: 3.5rem;
     font-weight: 400;
     font-style: italic;
-    color: var(--color-text);
+    color: #ffffff;
     margin: 0;
     letter-spacing: 2px;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 .campaign-cta {
@@ -2395,14 +2396,13 @@ footer {
     }
 
     .mental-health-quote-minimal {
-        font-size: 2.2rem;
+        font-size: 2rem;
         letter-spacing: 1px;
     }
 
     .campaign-quote {
-        padding: var(--spacing-lg) var(--spacing-md);
+        padding: var(--spacing-sm) var(--spacing-md);
         margin: var(--spacing-lg) 0;
-        border-width: 1.5px;
     }
 
 .resource-grid {
