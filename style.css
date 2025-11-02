@@ -517,6 +517,23 @@ img {
     font-size: 1.2rem;
 }
 
+.campaign-quote {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+}
+
+.mental-health-quote-minimal {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-text);
+    margin: 0;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
 .campaign-cta {
     text-align: center;
     margin-top: var(--spacing-lg);
@@ -2372,6 +2389,15 @@ footer {
     .mental-health-quote {
         font-size: 1rem;
         margin-top: var(--spacing-sm);
+    }
+
+    .mental-health-quote-minimal {
+        font-size: 1.8rem;
+    }
+
+    .campaign-quote {
+        padding: var(--spacing-lg) var(--spacing-md);
+        margin: var(--spacing-lg) 0;
     }
 
 .resource-grid {
