@@ -1558,8 +1558,14 @@ img {
 
     .counselor-image {
         width: 100%;
-        max-width: 300px;
-        margin-bottom: var(--spacing-md);
+        max-width: 400px;
+    }
+
+    .counselor-image-wrapper .professional-card {
+        position: relative;
+        margin-top: var(--spacing-md);
+        border-radius: 15px;
+        background: linear-gradient(135deg, var(--color-green) 0%, var(--color-blue) 100%);
     }
 
 /* Professional Resources Section */
@@ -1572,19 +1578,37 @@ img {
 
 .counselor-content {
     display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-lg);
+    justify-content: center;
+    align-items: center;
     max-width: 1100px;
     margin: 0 auto;
 }
 
+.counselor-image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
 .counselor-image {
-    width: 300px;
+    width: 400px;
     height: auto;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     object-fit: cover;
-    flex-shrink: 0;
+    display: block;
+}
+
+.counselor-image-wrapper .professional-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(215, 231, 223, 0.95);
+    backdrop-filter: blur(10px);
+    margin: 0;
+    border-radius: 0 0 15px 15px;
+    padding: var(--spacing-md);
+    max-width: none;
 }
 
 .professional-resources h2,
