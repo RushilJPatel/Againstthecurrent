@@ -2394,6 +2394,15 @@ footer {
         padding: var(--spacing-sm) var(--spacing-md);
     }
 
+    .logo-container {
+        display: block;
+        order: 3;
+    }
+
+    .hamburger {
+        order: 1;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
