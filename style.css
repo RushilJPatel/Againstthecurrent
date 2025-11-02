@@ -2220,10 +2220,13 @@ footer {
         font-size: 1rem;
     }
 
-    .factors-grid,
-    .resource-grid {
-        grid-template-columns: 1fr;
-    }
+.factors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.resource-grid {
+    grid-template-columns: 1fr;
+}
 
     .crisis-numbers {
         flex-direction: column;
