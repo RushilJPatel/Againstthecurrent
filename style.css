@@ -1551,12 +1551,40 @@ img {
         font-size: 1rem;
     }
 
+    .counselor-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .counselor-image {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: var(--spacing-md);
+    }
+
 /* Professional Resources Section */
 .professional-resources,
 .professional-section,
 .counselor-section {
     padding: var(--spacing-xl) var(--spacing-md);
     background-color: var(--color-light);
+}
+
+.counselor-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.counselor-image {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 .professional-resources h2,
