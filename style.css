@@ -1770,10 +1770,26 @@ section {
         font-size: 0.9rem;
         padding-top: var(--spacing-sm);
         margin-top: var(--spacing-sm);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        width: 100%;
     }
 
     .counselor-card-wide .professional-contact p {
         margin-bottom: var(--spacing-xs);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        max-width: 100%;
+    }
+
+    .counselor-card-wide .professional-contact a {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        display: inline-block;
+        max-width: 100%;
     }
 
     .counselor-section h2 {
@@ -1825,6 +1841,20 @@ section {
 
         .counselor-card-wide .professional-contact {
             font-size: 0.85rem;
+            padding: var(--spacing-xs) var(--spacing-sm);
+        }
+
+        .counselor-card-wide .professional-contact p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .counselor-card-wide .professional-contact a {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            max-width: 100%;
         }
 
         .counselor-section .section-intro {
@@ -1878,6 +1908,16 @@ section {
     display: flex;
     flex-direction: column;
     min-width: 0;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.counselor-card-wide .professional-info p,
+.counselor-card-wide .professional-info h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .counselor-card-wide .professional-bio {
@@ -1959,6 +1999,24 @@ section {
     margin-top: var(--spacing-md);
     padding-top: var(--spacing-md);
     border-top: 2px solid rgba(255,255,255,0.3);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.professional-contact p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+.professional-contact a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    display: inline-block;
+    max-width: 100%;
 }
 
 .professional-contact p {
