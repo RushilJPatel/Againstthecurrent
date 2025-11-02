@@ -290,6 +290,24 @@ img {
     text-decoration-color: #666666;
 }
 
+/* Quote Section */
+.quote-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-blue) 50%, var(--color-green) 100%);
+    text-align: center;
+}
+
+.mental-health-quote {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
 /* Quiz Section */
 .quiz-section {
     padding: var(--spacing-xl) var(--spacing-md);
@@ -2351,8 +2369,13 @@ footer {
         font-size: 1.3rem;
     }
 
+    .mental-health-quote {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+
 .resource-grid {
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
 }
 
     .crisis-numbers {
