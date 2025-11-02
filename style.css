@@ -290,22 +290,17 @@ img {
     text-decoration-color: #666666;
 }
 
-/* Quote Section */
-.quote-section {
-    padding: var(--spacing-xl) var(--spacing-md);
-    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-blue) 50%, var(--color-green) 100%);
-    text-align: center;
-}
-
+/* Mental Health Quote */
 .mental-health-quote {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 4.5rem;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
-    letter-spacing: 2px;
-    line-height: 1.2;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    margin: var(--spacing-md) 0 0 0;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    text-align: center;
 }
 
 /* Quiz Section */
@@ -2158,6 +2153,11 @@ footer {
     opacity: 0.7;
 }
 
+.footer-bottom .mental-health-quote {
+    margin-top: var(--spacing-sm);
+    opacity: 0.8;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-container {
@@ -2370,8 +2370,8 @@ footer {
     }
 
     .mental-health-quote {
-        font-size: 2.5rem;
-        letter-spacing: 1px;
+        font-size: 1rem;
+        margin-top: var(--spacing-sm);
     }
 
 .resource-grid {
