@@ -35,6 +35,51 @@ if (hamburger && navMenu) {
     });
 }
 
+// Navbar scroll behavior - fade in on scroll up (mobile only)
+(function() {
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+    
+    function handleScroll() {
+        if (window.innerWidth > 768) {
+            navbar.classList.remove('hidden');
+            return;
+        }
+        
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+            if (scrollTop < lastScrollTop) {
+                // Scrolling up - show navbar
+                navbar.classList.remove('hidden');
+            } else {
+                // Scrolling down - hide navbar
+                navbar.classList.add('hidden');
+            }
+        } else {
+            // Near top - always show
+            navbar.classList.remove('hidden');
+        }
+        
+        lastScrollTop = scrollTop;
+    }
+    
+    if (navbar) {
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(handleScroll, 10);
+        }, false);
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navbar.classList.remove('hidden');
+            }
+        });
+    }
+})();
+
 // Comprehensive Wellness Quiz - Complete Rebuild
 (function() {
     'use strict';
