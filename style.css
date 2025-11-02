@@ -1515,10 +1515,126 @@ img {
         flex-direction: column;
     }
 
-    .todo-actions .btn {
-        width: 100%;
-        max-width: 300px;
+    .professional-resources,
+    .professional-section {
+        padding: var(--spacing-lg) var(--spacing-md);
     }
+
+    .professional-resources h2,
+    .professional-section h2 {
+        font-size: 2rem;
+    }
+
+    .professional-card {
+        padding: var(--spacing-md);
+    }
+
+    .professional-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .professional-title {
+        font-size: 1.1rem;
+    }
+
+    .professional-credentials {
+        font-size: 1rem;
+    }
+
+    .professional-bio {
+        font-size: 0.95rem;
+    }
+
+    .professional-contact p {
+        font-size: 1rem;
+    }
+
+/* Professional Resources Section */
+.professional-resources,
+.professional-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--color-light);
+}
+
+.professional-resources h2,
+.professional-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-dark);
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-light);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.professional-card {
+    background: linear-gradient(135deg, var(--color-green) 0%, var(--color-blue) 100%);
+    padding: var(--spacing-lg);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.professional-card h3 {
+    color: var(--color-dark);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.professional-title {
+    font-size: 1.3rem;
+    color: var(--color-text-light);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.professional-credentials {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+}
+
+.professional-bio {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+    text-align: left;
+}
+
+.professional-contact {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 2px solid rgba(255,255,255,0.3);
+}
+
+.professional-contact p {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-dark);
+}
+
+.professional-contact a {
+    color: var(--color-dark);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.professional-contact a:hover {
+    color: var(--color-coral);
+    text-decoration: underline;
+}
 
 .simple-actions {
     padding: var(--spacing-xl) var(--spacing-md);
