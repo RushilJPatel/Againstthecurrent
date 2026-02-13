@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Details - Against the Current</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
@@ -111,11 +113,31 @@
     <script>
         // Event data
         const events = {
+            'words-that-swim': {
+                title: 'Words That Swim',
+                subtitle: 'Encouragement at Your Fingertips',
+                image: 'fishbowl.jpg',
+                date: 'September 23, 2025',
+                time: 'School Hours',
+                location: 'Counseling Offices',
+                organizer: 'Against the Current Team',
+                description: `
+                    <p>On September 23, we launched Words That Swim at our high school — a simple yet meaningful initiative designed to provide ongoing encouragement and support to students.</p>
+                    <h4>What Happened:</h4>
+                    <ul>
+                        <li>Decorative fishbowls filled with affirmations were placed in counseling offices</li>
+                        <li>Each slip of paper included a positive message, coping reminder, or encouraging quote</li>
+                        <li>Students were invited to “pick a word that swims to them” whenever they needed support</li>
+                        <li>Counselors encouraged students to take affirmations during visits or throughout the day</li>
+                    </ul>
+                    <p>This initiative created a low-pressure, accessible way for students to receive encouragement whenever they needed it. By placing the fishbowls directly in counseling spaces, we reinforced that support is always available and that small words of affirmation can make a meaningful difference.</p>
+                `
+            },
             'rock-painting': {
-                title: 'Rock Painting',
+                title: 'Rocks of Resilience',
                 subtitle: 'Express yourself through creative art',
                 image: 'rockpainting1.jpg',
-                date: 'October 2025',
+                date: 'October 13, 2025',
                 time: '3:00 PM - 5:00 PM',
                 location: 'Sinns Lake Park',
                 organizer: 'Against the Current Team',
@@ -135,8 +157,8 @@
             'trunk-or-treat': {
                 title: 'Trunk or Treat',
                 subtitle: 'A safe and fun Halloween celebration',
-                image: 'trunkortreatmain.jpg',
-                date: 'October 2025',
+                image: 'trunkortreat.jpg',
+                date: 'October 23, 2025',
                 time: '6:00 PM - 8:00 PM',
                 location: 'North Gwinnett High School Parking Lot',
                 organizer: 'Against the Current Team',
@@ -153,6 +175,186 @@
                     </ul>
                     <p>The event successfully promoted community connection and provided a safe, welcoming space for families to celebrate together. Many families participated, and the positive energy was contagious!</p>
                 `
+            },
+            'spirit-week': {
+                title: 'Mental Health Spirit Week',
+                subtitle: 'Catch the Current',
+                image: 'spiritweek.jpg',
+                date: 'February 2-6, 2026',
+                time: 'School Hours',
+                location: 'School-wide',
+                organizer: 'Against the Current Team',
+                description: `
+                    <p>We continued with a Mental Health Spirit Week known as Catch the Current celebrating awareness, advocacy, and school-wide participation.</p>
+                    <h4>What Happened:</h4>
+                    <ul>
+                        <li>Students participated in themed spirit days promoting positivity</li>
+                        <li>Mental health ribbon pins were distributed to show visible support</li>
+                        <li>Goodie bags with stress-relief items (putty and sensory toys) were handed out</li>
+                        <li>Students were interviewed about their favorite self-care activities and coping strategies</li>
+                    </ul>
+                    <p>Spirit Week unified the school community and visibly demonstrated student commitment to supporting mental wellness.</p>
+                `
+            },
+            'escape-room': {
+                title: 'Online Escape Room',
+                subtitle: 'Interactive Mental Health Education',
+                image: 'escaperoom.jpg',
+                date: 'February 1, 2026',
+                time: 'Anytime',
+                location: 'Virtual',
+                organizer: 'Against the Current Team',
+                description: `
+                    <p>To ensure accessibility for all students, we created an Online Mental Health Escape Room event.</p>
+                    <h4>What Happened:</h4>
+                    <ul>
+                        <li>Students participated virtually through an interactive platform</li>
+                        <li>Clues incorporated mental health facts and coping strategies</li>
+                        <li>The event was promoted heavily through social media</li>
+                        <li>Participation was open to all students regardless of schedule or transportation</li>
+                    </ul>
+                    <p>This online initiative increased digital engagement and ensured inclusivity while making mental health education interactive and engaging.</p>
+                `
+            },
+            'chipotle-fundraiser': {
+                title: 'Chipotle Fundraiser',
+                subtitle: 'Eating for a Cause',
+                image: 'chipotle.jpg',
+                date: 'February 1, 2026',
+                time: 'Evening',
+                location: 'Chipotle',
+                organizer: 'Against the Current Team',
+                description: `
+                    <p>We partnered with Chipotle to host a restaurant fundraiser night supporting mental health advocacy.</p>
+                    <h4>What Happened:</h4>
+                    <ul>
+                        <li>Supporters dined at Chipotle during the designated fundraising window</li>
+                        <li>A portion of proceeds was donated to support NAMI</li>
+                        <li>Students promoted the event through social media and flyers</li>
+                        <li>The fundraiser encouraged community participation beyond school hours</li>
+                    </ul>
+                    <p>This event raised over $100 for NAMI, expanding outreach and encouraging families to support mental health initiatives.</p>
+                `
+            },
+            'friendship-bracelet': {
+                title: 'Friendship Bracelet Event',
+                subtitle: 'Crafting Connections',
+                image: 'friendship bracelets.jpg',
+                date: 'January 21, 2026',
+                time: 'After School',
+                location: 'School',
+                organizer: 'Against the Current Team',
+                description: `
+                    <p>We hosted a Friendship Bracelet Making Event as a creative coping outlet and opportunity for connection.</p>
+                    <h4>What Happened:</h4>
+                    <ul>
+                        <li>Supplies were provided for bracelet creation</li>
+                        <li>Students crafted bracelets for themselves or friends</li>
+                        <li>Discussions centered around healthy coping skills</li>
+                        <li>The environment promoted mindfulness and creativity</li>
+                    </ul>
+                    <p>The event combined artistic expression with social connection, reinforcing creative coping as a healthy stress-management strategy.</p>
+                `
+            },
+            'gratitude-board': {
+                title: 'Gratitude Board',
+                subtitle: 'Sharing Positivity',
+                image: 'grattitudewall.jpg',
+                date: 'January 12, 2026',
+                time: 'Lunch Periods',
+                location: 'Cafeteria',
+                organizer: 'Against the Current Team',
+                description: `
+                    <p>During lunch periods, we created a Gratitude Board where students could reflect and share positive thoughts.</p>
+                    <h4>What Happened:</h4>
+                    <ul>
+                        <li>Students wrote what they were grateful for on sticky notes</li>
+                        <li>Prompts encouraged reflection on friendships, achievements, and support systems</li>
+                        <li>The board remained visible throughout the week to inspire others</li>
+                        <li>Conversations around gratitude and mental wellness were encouraged</li>
+                    </ul>
+                    <p>The board served as a visible reminder of positivity and community support within our school.</p>
+                `
+            },
+            'candy-gram': {
+                title: 'Candy Gram Initiative',
+                subtitle: 'Sweet Support',
+                image: 'candygrams.jpg',
+                date: 'January 9, 2026',
+                time: 'School Hours',
+                location: 'School-wide',
+                organizer: 'Against the Current Team',
+                description: `
+                    <p>We organized a Candy Gram initiative at our high school to spread positivity and peer encouragement.</p>
+                    <h4>What Happened:</h4>
+                    <ul>
+                        <li>Students purchased candy grams to send to friends</li>
+                        <li>Each gram included an uplifting or affirming message</li>
+                        <li>Deliveries were made during school hours</li>
+                        <li>The activity encouraged kindness and peer support</li>
+                    </ul>
+                    <p>This event promoted small acts of appreciation that strengthened relationships and boosted morale across campus.</p>
+                `
+            },
+            'koi-for-kin': {
+                title: 'Koi for Kin Bake Sale',
+                subtitle: 'Baking for Awareness',
+                image: 'bakesale.jpg',
+                date: 'December 31, 2025',
+                time: 'Weekend',
+                location: 'Delay Nature Park',
+                organizer: 'Against the Current Team',
+                description: `
+                    <p>We hosted Koi for Kin, a community bake sale at Delay Nature Park to raise funds and spread awareness about mental health.</p>
+                    <h4>What Happened:</h4>
+                    <ul>
+                        <li>Volunteers prepared and sold homemade baked goods</li>
+                        <li>Informational materials about mental health resources were shared</li>
+                        <li>Community members were encouraged to learn about NAMI’s mission</li>
+                        <li>Donations were collected to support advocacy and education efforts</li>
+                    </ul>
+                    <p>The bake sale raised over $85 for NAMI while connecting with members of the broader community and promoting awareness beyond the school environment.</p>
+                `
+            },
+            'friendsgiving': {
+                title: 'Friendsgiving Potluck',
+                subtitle: 'Gathering with Gratitude',
+                image: 'friendsgiving.jpg',
+                date: 'November 20, 2025',
+                time: 'Evening',
+                location: 'School',
+                organizer: 'Against the Current Team',
+                description: `
+                    <p>We organized a Friendsgiving Potluck to create a safe and welcoming space where students could gather, share food, and build meaningful social connections.</p>
+                    <h4>What Happened:</h4>
+                    <ul>
+                        <li>Students brought dishes to share in a collaborative potluck setting</li>
+                        <li>Icebreaker activities encouraged conversation and new friendships</li>
+                        <li>Guided discussion prompts centered around gratitude and emotional well-being</li>
+                        <li>The event emphasized stable, supportive peer relationships</li>
+                    </ul>
+                    <p>The Friendsgiving event strengthened social bonds and fostered a sense of belonging — a key protective factor for mental health.</p>
+                `
+            },
+            'pickleball': {
+                title: 'Koi Cup Pickleball',
+                subtitle: 'Serving Up Support',
+                image: 'koicup.jpg',
+                date: 'November 10, 2025',
+                time: 'Weekend',
+                location: 'Pickleball Courts',
+                organizer: 'Against the Current Team',
+                description: `
+                    <p>We hosted the Koi Cup Pickleball Tournament, bringing students together for a fun and active way to support mental health awareness while strengthening community bonds.</p>
+                    <h4>What Happened:</h4>
+                    <ul>
+                        <li>Students formed teams and competed in friendly pickleball matches</li>
+                        <li>The event encouraged teamwork, movement, and positive social interaction</li>
+                        <li>Spectators came out to cheer and support participants</li>
+                        <li>Entry fees and donations were collected to support mental health initiatives</li>
+                    </ul>
+                    <p>The tournament raised over $100 for NAMI (National Alliance on Mental Illness) and created a lively atmosphere where students connected through friendly competition while supporting an important cause.</p>
+                `
             }
         };
 
@@ -160,7 +362,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const eventId = urlParams.get('event');
-            
+
             if (eventId && events[eventId]) {
                 const event = events[eventId];
                 document.getElementById('eventTitle').textContent = event.title;
@@ -186,5 +388,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>
